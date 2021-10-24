@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccO5EUdd.s 			page 1
+ARM GAS  /tmp/cc77UqlU.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccO5EUdd.s 			page 1
   30:Core/Src/gpio.c **** /* USER CODE BEGIN 1 */
   31:Core/Src/gpio.c **** 
   32:Core/Src/gpio.c **** /* USER CODE END 1 */
-ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccO5EUdd.s 			page 2
+ARM GAS  /tmp/cc77UqlU.s 			page 2
 
 
   33:Core/Src/gpio.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccO5EUdd.s 			page 1
   65              		.loc 1 48 3 view .LVU10
   66              		.loc 1 48 3 view .LVU11
   67 0022 9A69     		ldr	r2, [r3, #24]
-ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccO5EUdd.s 			page 3
+ARM GAS  /tmp/cc77UqlU.s 			page 3
 
 
   68 0024 42F00402 		orr	r2, r2, #4
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccO5EUdd.s 			page 1
  110 0058 30BD     		pop	{r4, r5, pc}
  111              	.L4:
  112 005a 00BF     		.align	2
-ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccO5EUdd.s 			page 4
+ARM GAS  /tmp/cc77UqlU.s 			page 4
 
 
  113              	.L3:
@@ -188,18 +188,21 @@ ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccO5EUdd.s 			page 1
  117              	.LFE65:
  119              		.text
  120              	.Letext0:
- 121              		.file 2 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.07\\arm-none-eabi\\include\\
- 122              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.07\\arm-none-eabi\\include\\
- 123              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xe.h"
- 124              		.file 5 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
-ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccO5EUdd.s 			page 5
+ 121              		.file 2 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h"
+ 122              		.file 3 "Drivers/CMSIS/Include/core_cm3.h"
+ 123              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h"
+ 124              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xe.h"
+ 125              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
+ 126              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
+ 127              		.file 8 "Core/Inc/main.h"
+ARM GAS  /tmp/cc77UqlU.s 			page 5
 
 
 DEFINED SYMBOLS
-                            *ABS*:00000000 gpio.c
-C:\Users\Lenovo\AppData\Local\Temp\ccO5EUdd.s:16     .text.MX_GPIO_Init:00000000 $t
-C:\Users\Lenovo\AppData\Local\Temp\ccO5EUdd.s:24     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
-C:\Users\Lenovo\AppData\Local\Temp\ccO5EUdd.s:114    .text.MX_GPIO_Init:0000005c $d
+                            *ABS*:0000000000000000 gpio.c
+     /tmp/cc77UqlU.s:16     .text.MX_GPIO_Init:0000000000000000 $t
+     /tmp/cc77UqlU.s:24     .text.MX_GPIO_Init:0000000000000000 MX_GPIO_Init
+     /tmp/cc77UqlU.s:114    .text.MX_GPIO_Init:000000000000005c $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin

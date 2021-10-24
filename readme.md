@@ -1,0 +1,2 @@
+USART1: 串口 PA9发送 PA10接收 和电脑115200
+USART2：zigbee PA2发送 PA3接收

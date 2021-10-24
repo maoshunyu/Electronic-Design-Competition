@@ -42,7 +42,10 @@ extern "C" {
 
 /* Exported constants --------------------------------------------------------*/
 /* USER CODE BEGIN EC */
-
+#define MAX_LEN 16
+#define RX_BUF_LEN 6
+extern uint8_t u2_RX_Buf[MAX_LEN];
+extern int rx_len;
 /* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/
