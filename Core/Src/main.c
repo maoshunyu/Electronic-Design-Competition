@@ -105,7 +105,7 @@ int main(void)
     /* USER CODE END WHILE */
     int x=rand()%(900000)+100000;
     u1_printf("sent:%d\n",x);
-    u2_printf("%d\n",x);
+    u2_printf("%d",x);
     HAL_Delay(3000);
     /* USER CODE BEGIN 3 */
   }
@@ -151,12 +151,7 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef* huart){
-  u1_printf("received:");
-  HAL_UART_Transmit(&huart1, u2_RX_Buf, RX_BUF_LEN, HAL_MAX_DELAY);
-  u1_printf("\n"); 
-  HAL_UART_Receive_DMA(&huart2, u2_RX_Buf, RX_BUF_LEN); 
-}
+
 /* USER CODE END 4 */
 
 /**

@@ -241,6 +241,12 @@ void u2_printf(char* fmt, ...) {
   len = strlen((char*)buf);
   HAL_UART_Transmit(&huart2, buf, len, HAL_MAX_DELAY);
 }
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef* huart){
+  u1_printf("received:");
+  HAL_UART_Transmit(&huart1, u2_RX_Buf, RX_BUF_LEN, HAL_MAX_DELAY);
+  u1_printf("\n"); 
+  HAL_UART_Receive_DMA(&huart2, u2_RX_Buf, RX_BUF_LEN); 
+}
 /* USER CODE END 1 */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
