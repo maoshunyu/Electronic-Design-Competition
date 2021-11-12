@@ -19,10 +19,10 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "dma.h"
+#include "tim.h"
 #include "usart.h"
 #include "gpio.h"
-#include <stdlib.h>
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -30,13 +30,20 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+typedef struct
+{
+    float A0;          /**< The derived gain, A0 = Kp + Ki + Kd . */
+    float A1;          /**< The derived gain, A1 = -Kp - 2Kd. */
+    float A2;          /**< The derived gain, A2 = Kd . */
+    float state[3];    /**< The state array of length 3. */
+    float Kp;          /**< The proportional gain. */
+    float Ki;          /**< The integral gain. */
+    float Kd;          /**< The derivative gain. */
+} pid_instance;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
-
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -47,9 +54,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-uint8_t u2_RX_Buf[MAX_LEN];
-uint8_t u2_RX_ReceiveBit;
-int rx_len = 0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -60,7 +65,6 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
 /* USER CODE END 0 */
 
 /**
@@ -70,7 +74,6 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -91,11 +94,25 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_DMA_Init();
-  MX_USART1_UART_Init();
+  MX_TIM2_Init();
+  MX_TIM3_Init();
+  MX_TIM4_Init();
+  MX_TIM8_Init();
+  MX_TIM6_Init();
+  MX_TIM1_Init();
   MX_USART2_UART_Init();
+  MX_USART3_UART_Init();
+  MX_UART5_Init();
   /* USER CODE BEGIN 2 */
-  HAL_UART_Receive_DMA(&huart2, u2_RX_Buf, RX_BUF_LEN);
+  HAL_TIM_Base_Start_IT(&htim6); 
+  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1); 
+  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2); 
+  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_3); 
+  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_4); 
+  HAL_TIM_Encoder_Start(&htim1, TIM_CHANNEL_ALL);
+  HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_ALL);
+  HAL_TIM_Encoder_Start(&htim4, TIM_CHANNEL_ALL);
+  HAL_TIM_Encoder_Start(&htim8, TIM_CHANNEL_ALL);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -103,11 +120,10 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-    int x=rand()%(900000)+100000;
-    u1_printf("sent:%d\n",x);
-    u2_printf("%d",x);
-    HAL_Delay(3000);
+
     /* USER CODE BEGIN 3 */
+		
+
   }
   /* USER CODE END 3 */
 }
@@ -151,7 +167,57 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+//120  0.1  500
+float kp=120,ki=0.1,kd=10;
+float integral=0,prev=0;
+//cm/s
+//要区分prev1234,integral1234
+float pid(float setspeed,float actualspeed){
+  integral+=setspeed-actualspeed;
+  float out=actualspeed+kp*(setspeed-actualspeed)+ki*integral+kd*(prev-actualspeed)*50;
+  prev=actualspeed;
+  return out;
+}
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim)  //refresh PID value every 10ms
+{
+    if (htim->Instance == TIM6) {
+        HAL_GPIO_WritePin(GPIOB,GPIO_PIN_5,0);
+        HAL_GPIO_WritePin(GPIOB,GPIO_PIN_4,1);
 
+        HAL_GPIO_WritePin(GPIOB,GPIO_PIN_3,1);
+        HAL_GPIO_WritePin(GPIOC,GPIO_PIN_14,0);
+
+        HAL_GPIO_WritePin(GPIOB,GPIO_PIN_15,0);
+        HAL_GPIO_WritePin(GPIOB,GPIO_PIN_14,1);
+
+        HAL_GPIO_WritePin(GPIOB,GPIO_PIN_13,0);
+        HAL_GPIO_WritePin(GPIOB,GPIO_PIN_12,1);
+        
+        int count1=__HAL_TIM_GetCounter(&htim1);
+        int count2=__HAL_TIM_GetCounter(&htim3);
+        int count3=__HAL_TIM_GetCounter(&htim4);
+        int count4=__HAL_TIM_GetCounter(&htim8);
+        __HAL_TIM_SetCounter(&htim1,0);
+        __HAL_TIM_SetCounter(&htim3,0);
+        __HAL_TIM_SetCounter(&htim4,0);
+        __HAL_TIM_SetCounter(&htim8,0);
+        float speed1=count1*50/1040*3.1416*6.5;//cm/s
+        float speed2=count2*50/1040*3.1416*6.5;
+        float speed3=count3*50/1040*3.1416*6.5;
+        float speed4=count4*50/1040*3.1416*6.5;
+        int pwm1=(int)(pid(100,speed1)*5.88);
+        if(pwm1<300)pwm1=300;
+        if(pwm1>999)pwm1=999;
+        //300  ---- 43cm/s
+        //1000 ---- 170
+        //6.2x ---- x
+        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, pwm1); 
+        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, pwm1); 
+        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_3, pwm1); 
+        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, pwm1); 
+        u2_printf("%d\n",(int)speed1);
+    }
+}
 /* USER CODE END 4 */
 
 /**
