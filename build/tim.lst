@@ -1,0 +1,2573 @@
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 1
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"tim.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.MX_TIM1_Init,"ax",%progbits
+  16              		.align	1
+  17              		.global	MX_TIM1_Init
+  18              		.arch armv7-m
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu softvfp
+  24              	MX_TIM1_Init:
+  25              	.LFB65:
+  26              		.file 1 "Core/Src/tim.c"
+   1:Core/Src/tim.c **** /**
+   2:Core/Src/tim.c ****   ******************************************************************************
+   3:Core/Src/tim.c ****   * @file    tim.c
+   4:Core/Src/tim.c ****   * @brief   This file provides code for the configuration
+   5:Core/Src/tim.c ****   *          of the TIM instances.
+   6:Core/Src/tim.c ****   ******************************************************************************
+   7:Core/Src/tim.c ****   * @attention
+   8:Core/Src/tim.c ****   *
+   9:Core/Src/tim.c ****   * <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.
+  10:Core/Src/tim.c ****   * All rights reserved.</center></h2>
+  11:Core/Src/tim.c ****   *
+  12:Core/Src/tim.c ****   * This software component is licensed by ST under BSD 3-Clause license,
+  13:Core/Src/tim.c ****   * the "License"; You may not use this file except in compliance with the
+  14:Core/Src/tim.c ****   * License. You may obtain a copy of the License at:
+  15:Core/Src/tim.c ****   *                        opensource.org/licenses/BSD-3-Clause
+  16:Core/Src/tim.c ****   *
+  17:Core/Src/tim.c ****   ******************************************************************************
+  18:Core/Src/tim.c ****   */
+  19:Core/Src/tim.c **** 
+  20:Core/Src/tim.c **** /* Includes ------------------------------------------------------------------*/
+  21:Core/Src/tim.c **** #include "tim.h"
+  22:Core/Src/tim.c **** 
+  23:Core/Src/tim.c **** /* USER CODE BEGIN 0 */
+  24:Core/Src/tim.c **** 
+  25:Core/Src/tim.c **** /* USER CODE END 0 */
+  26:Core/Src/tim.c **** 
+  27:Core/Src/tim.c **** TIM_HandleTypeDef htim1;
+  28:Core/Src/tim.c **** TIM_HandleTypeDef htim2;
+  29:Core/Src/tim.c **** TIM_HandleTypeDef htim3;
+  30:Core/Src/tim.c **** TIM_HandleTypeDef htim4;
+  31:Core/Src/tim.c **** TIM_HandleTypeDef htim6;
+  32:Core/Src/tim.c **** TIM_HandleTypeDef htim8;
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 2
+
+
+  33:Core/Src/tim.c **** 
+  34:Core/Src/tim.c **** /* TIM1 init function */
+  35:Core/Src/tim.c **** void MX_TIM1_Init(void)
+  36:Core/Src/tim.c **** {
+  27              		.loc 1 36 1 view -0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 48
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 00B5     		push	{lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 4
+  34              		.cfi_offset 14, -4
+  35 0002 8DB0     		sub	sp, sp, #52
+  36              	.LCFI1:
+  37              		.cfi_def_cfa_offset 56
+  37:Core/Src/tim.c **** 
+  38:Core/Src/tim.c ****   /* USER CODE BEGIN TIM1_Init 0 */
+  39:Core/Src/tim.c **** 
+  40:Core/Src/tim.c ****   /* USER CODE END TIM1_Init 0 */
+  41:Core/Src/tim.c **** 
+  42:Core/Src/tim.c ****   TIM_Encoder_InitTypeDef sConfig = {0};
+  38              		.loc 1 42 3 view .LVU1
+  39              		.loc 1 42 27 is_stmt 0 view .LVU2
+  40 0004 2422     		movs	r2, #36
+  41 0006 0021     		movs	r1, #0
+  42 0008 03A8     		add	r0, sp, #12
+  43 000a FFF7FEFF 		bl	memset
+  44              	.LVL0:
+  43:Core/Src/tim.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
+  45              		.loc 1 43 3 is_stmt 1 view .LVU3
+  46              		.loc 1 43 27 is_stmt 0 view .LVU4
+  47 000e 0023     		movs	r3, #0
+  48 0010 0193     		str	r3, [sp, #4]
+  49 0012 0293     		str	r3, [sp, #8]
+  44:Core/Src/tim.c **** 
+  45:Core/Src/tim.c ****   /* USER CODE BEGIN TIM1_Init 1 */
+  46:Core/Src/tim.c **** 
+  47:Core/Src/tim.c ****   /* USER CODE END TIM1_Init 1 */
+  48:Core/Src/tim.c ****   htim1.Instance = TIM1;
+  50              		.loc 1 48 3 is_stmt 1 view .LVU5
+  51              		.loc 1 48 18 is_stmt 0 view .LVU6
+  52 0014 1248     		ldr	r0, .L7
+  53 0016 134A     		ldr	r2, .L7+4
+  54 0018 0260     		str	r2, [r0]
+  49:Core/Src/tim.c ****   htim1.Init.Prescaler = 0;
+  55              		.loc 1 49 3 is_stmt 1 view .LVU7
+  56              		.loc 1 49 24 is_stmt 0 view .LVU8
+  57 001a 4360     		str	r3, [r0, #4]
+  50:Core/Src/tim.c ****   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
+  58              		.loc 1 50 3 is_stmt 1 view .LVU9
+  59              		.loc 1 50 26 is_stmt 0 view .LVU10
+  60 001c 8360     		str	r3, [r0, #8]
+  51:Core/Src/tim.c ****   htim1.Init.Period = 65535;
+  61              		.loc 1 51 3 is_stmt 1 view .LVU11
+  62              		.loc 1 51 21 is_stmt 0 view .LVU12
+  63 001e 4FF6FF72 		movw	r2, #65535
+  64 0022 C260     		str	r2, [r0, #12]
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 3
+
+
+  52:Core/Src/tim.c ****   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  65              		.loc 1 52 3 is_stmt 1 view .LVU13
+  66              		.loc 1 52 28 is_stmt 0 view .LVU14
+  67 0024 0361     		str	r3, [r0, #16]
+  53:Core/Src/tim.c ****   htim1.Init.RepetitionCounter = 0;
+  68              		.loc 1 53 3 is_stmt 1 view .LVU15
+  69              		.loc 1 53 32 is_stmt 0 view .LVU16
+  70 0026 4361     		str	r3, [r0, #20]
+  54:Core/Src/tim.c ****   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  71              		.loc 1 54 3 is_stmt 1 view .LVU17
+  72              		.loc 1 54 32 is_stmt 0 view .LVU18
+  73 0028 8361     		str	r3, [r0, #24]
+  55:Core/Src/tim.c ****   sConfig.EncoderMode = TIM_ENCODERMODE_TI12;
+  74              		.loc 1 55 3 is_stmt 1 view .LVU19
+  75              		.loc 1 55 23 is_stmt 0 view .LVU20
+  76 002a 0323     		movs	r3, #3
+  77 002c 0393     		str	r3, [sp, #12]
+  56:Core/Src/tim.c ****   sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+  78              		.loc 1 56 3 is_stmt 1 view .LVU21
+  57:Core/Src/tim.c ****   sConfig.IC1Selection = TIM_ICSELECTION_DIRECTTI;
+  79              		.loc 1 57 3 view .LVU22
+  80              		.loc 1 57 24 is_stmt 0 view .LVU23
+  81 002e 0123     		movs	r3, #1
+  82 0030 0593     		str	r3, [sp, #20]
+  58:Core/Src/tim.c ****   sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
+  83              		.loc 1 58 3 is_stmt 1 view .LVU24
+  59:Core/Src/tim.c ****   sConfig.IC1Filter = 0;
+  84              		.loc 1 59 3 view .LVU25
+  60:Core/Src/tim.c ****   sConfig.IC2Polarity = TIM_ICPOLARITY_RISING;
+  85              		.loc 1 60 3 view .LVU26
+  61:Core/Src/tim.c ****   sConfig.IC2Selection = TIM_ICSELECTION_DIRECTTI;
+  86              		.loc 1 61 3 view .LVU27
+  87              		.loc 1 61 24 is_stmt 0 view .LVU28
+  88 0032 0993     		str	r3, [sp, #36]
+  62:Core/Src/tim.c ****   sConfig.IC2Prescaler = TIM_ICPSC_DIV1;
+  89              		.loc 1 62 3 is_stmt 1 view .LVU29
+  63:Core/Src/tim.c ****   sConfig.IC2Filter = 0;
+  90              		.loc 1 63 3 view .LVU30
+  64:Core/Src/tim.c ****   if (HAL_TIM_Encoder_Init(&htim1, &sConfig) != HAL_OK)
+  91              		.loc 1 64 3 view .LVU31
+  92              		.loc 1 64 7 is_stmt 0 view .LVU32
+  93 0034 03A9     		add	r1, sp, #12
+  94 0036 FFF7FEFF 		bl	HAL_TIM_Encoder_Init
+  95              	.LVL1:
+  96              		.loc 1 64 6 view .LVU33
+  97 003a 50B9     		cbnz	r0, .L5
+  98              	.L2:
+  65:Core/Src/tim.c ****   {
+  66:Core/Src/tim.c ****     Error_Handler();
+  67:Core/Src/tim.c ****   }
+  68:Core/Src/tim.c ****   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  99              		.loc 1 68 3 is_stmt 1 view .LVU34
+ 100              		.loc 1 68 37 is_stmt 0 view .LVU35
+ 101 003c 0023     		movs	r3, #0
+ 102 003e 0193     		str	r3, [sp, #4]
+  69:Core/Src/tim.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+ 103              		.loc 1 69 3 is_stmt 1 view .LVU36
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 4
+
+
+ 104              		.loc 1 69 33 is_stmt 0 view .LVU37
+ 105 0040 0293     		str	r3, [sp, #8]
+  70:Core/Src/tim.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
+ 106              		.loc 1 70 3 is_stmt 1 view .LVU38
+ 107              		.loc 1 70 7 is_stmt 0 view .LVU39
+ 108 0042 01A9     		add	r1, sp, #4
+ 109 0044 0648     		ldr	r0, .L7
+ 110 0046 FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
+ 111              	.LVL2:
+ 112              		.loc 1 70 6 view .LVU40
+ 113 004a 28B9     		cbnz	r0, .L6
+ 114              	.L1:
+  71:Core/Src/tim.c ****   {
+  72:Core/Src/tim.c ****     Error_Handler();
+  73:Core/Src/tim.c ****   }
+  74:Core/Src/tim.c ****   /* USER CODE BEGIN TIM1_Init 2 */
+  75:Core/Src/tim.c **** 
+  76:Core/Src/tim.c ****   /* USER CODE END TIM1_Init 2 */
+  77:Core/Src/tim.c **** 
+  78:Core/Src/tim.c **** }
+ 115              		.loc 1 78 1 view .LVU41
+ 116 004c 0DB0     		add	sp, sp, #52
+ 117              	.LCFI2:
+ 118              		.cfi_remember_state
+ 119              		.cfi_def_cfa_offset 4
+ 120              		@ sp needed
+ 121 004e 5DF804FB 		ldr	pc, [sp], #4
+ 122              	.L5:
+ 123              	.LCFI3:
+ 124              		.cfi_restore_state
+  66:Core/Src/tim.c ****   }
+ 125              		.loc 1 66 5 is_stmt 1 view .LVU42
+ 126 0052 FFF7FEFF 		bl	Error_Handler
+ 127              	.LVL3:
+ 128 0056 F1E7     		b	.L2
+ 129              	.L6:
+  72:Core/Src/tim.c ****   }
+ 130              		.loc 1 72 5 view .LVU43
+ 131 0058 FFF7FEFF 		bl	Error_Handler
+ 132              	.LVL4:
+ 133              		.loc 1 78 1 is_stmt 0 view .LVU44
+ 134 005c F6E7     		b	.L1
+ 135              	.L8:
+ 136 005e 00BF     		.align	2
+ 137              	.L7:
+ 138 0060 00000000 		.word	.LANCHOR0
+ 139 0064 002C0140 		.word	1073818624
+ 140              		.cfi_endproc
+ 141              	.LFE65:
+ 143              		.section	.text.MX_TIM3_Init,"ax",%progbits
+ 144              		.align	1
+ 145              		.global	MX_TIM3_Init
+ 146              		.syntax unified
+ 147              		.thumb
+ 148              		.thumb_func
+ 149              		.fpu softvfp
+ 151              	MX_TIM3_Init:
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 5
+
+
+ 152              	.LFB67:
+  79:Core/Src/tim.c **** /* TIM2 init function */
+  80:Core/Src/tim.c **** void MX_TIM2_Init(void)
+  81:Core/Src/tim.c **** {
+  82:Core/Src/tim.c **** 
+  83:Core/Src/tim.c ****   /* USER CODE BEGIN TIM2_Init 0 */
+  84:Core/Src/tim.c **** 
+  85:Core/Src/tim.c ****   /* USER CODE END TIM2_Init 0 */
+  86:Core/Src/tim.c **** 
+  87:Core/Src/tim.c ****   TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  88:Core/Src/tim.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
+  89:Core/Src/tim.c ****   TIM_OC_InitTypeDef sConfigOC = {0};
+  90:Core/Src/tim.c **** 
+  91:Core/Src/tim.c ****   /* USER CODE BEGIN TIM2_Init 1 */
+  92:Core/Src/tim.c **** 
+  93:Core/Src/tim.c ****   /* USER CODE END TIM2_Init 1 */
+  94:Core/Src/tim.c ****   htim2.Instance = TIM2;
+  95:Core/Src/tim.c ****   htim2.Init.Prescaler = 72-1;
+  96:Core/Src/tim.c ****   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+  97:Core/Src/tim.c ****   htim2.Init.Period = 1000-1;
+  98:Core/Src/tim.c ****   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  99:Core/Src/tim.c ****   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+ 100:Core/Src/tim.c ****   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
+ 101:Core/Src/tim.c ****   {
+ 102:Core/Src/tim.c ****     Error_Handler();
+ 103:Core/Src/tim.c ****   }
+ 104:Core/Src/tim.c ****   sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+ 105:Core/Src/tim.c ****   if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
+ 106:Core/Src/tim.c ****   {
+ 107:Core/Src/tim.c ****     Error_Handler();
+ 108:Core/Src/tim.c ****   }
+ 109:Core/Src/tim.c ****   if (HAL_TIM_PWM_Init(&htim2) != HAL_OK)
+ 110:Core/Src/tim.c ****   {
+ 111:Core/Src/tim.c ****     Error_Handler();
+ 112:Core/Src/tim.c ****   }
+ 113:Core/Src/tim.c ****   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+ 114:Core/Src/tim.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+ 115:Core/Src/tim.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+ 116:Core/Src/tim.c ****   {
+ 117:Core/Src/tim.c ****     Error_Handler();
+ 118:Core/Src/tim.c ****   }
+ 119:Core/Src/tim.c ****   sConfigOC.OCMode = TIM_OCMODE_PWM1;
+ 120:Core/Src/tim.c ****   sConfigOC.Pulse = 0;
+ 121:Core/Src/tim.c ****   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+ 122:Core/Src/tim.c ****   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+ 123:Core/Src/tim.c ****   if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+ 124:Core/Src/tim.c ****   {
+ 125:Core/Src/tim.c ****     Error_Handler();
+ 126:Core/Src/tim.c ****   }
+ 127:Core/Src/tim.c ****   if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
+ 128:Core/Src/tim.c ****   {
+ 129:Core/Src/tim.c ****     Error_Handler();
+ 130:Core/Src/tim.c ****   }
+ 131:Core/Src/tim.c ****   if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
+ 132:Core/Src/tim.c ****   {
+ 133:Core/Src/tim.c ****     Error_Handler();
+ 134:Core/Src/tim.c ****   }
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 6
+
+
+ 135:Core/Src/tim.c ****   if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_4) != HAL_OK)
+ 136:Core/Src/tim.c ****   {
+ 137:Core/Src/tim.c ****     Error_Handler();
+ 138:Core/Src/tim.c ****   }
+ 139:Core/Src/tim.c ****   /* USER CODE BEGIN TIM2_Init 2 */
+ 140:Core/Src/tim.c **** 
+ 141:Core/Src/tim.c ****   /* USER CODE END TIM2_Init 2 */
+ 142:Core/Src/tim.c ****   HAL_TIM_MspPostInit(&htim2);
+ 143:Core/Src/tim.c **** 
+ 144:Core/Src/tim.c **** }
+ 145:Core/Src/tim.c **** /* TIM3 init function */
+ 146:Core/Src/tim.c **** void MX_TIM3_Init(void)
+ 147:Core/Src/tim.c **** {
+ 153              		.loc 1 147 1 is_stmt 1 view -0
+ 154              		.cfi_startproc
+ 155              		@ args = 0, pretend = 0, frame = 48
+ 156              		@ frame_needed = 0, uses_anonymous_args = 0
+ 157 0000 00B5     		push	{lr}
+ 158              	.LCFI4:
+ 159              		.cfi_def_cfa_offset 4
+ 160              		.cfi_offset 14, -4
+ 161 0002 8DB0     		sub	sp, sp, #52
+ 162              	.LCFI5:
+ 163              		.cfi_def_cfa_offset 56
+ 148:Core/Src/tim.c **** 
+ 149:Core/Src/tim.c ****   /* USER CODE BEGIN TIM3_Init 0 */
+ 150:Core/Src/tim.c **** 
+ 151:Core/Src/tim.c ****   /* USER CODE END TIM3_Init 0 */
+ 152:Core/Src/tim.c **** 
+ 153:Core/Src/tim.c ****   TIM_Encoder_InitTypeDef sConfig = {0};
+ 164              		.loc 1 153 3 view .LVU46
+ 165              		.loc 1 153 27 is_stmt 0 view .LVU47
+ 166 0004 2422     		movs	r2, #36
+ 167 0006 0021     		movs	r1, #0
+ 168 0008 03A8     		add	r0, sp, #12
+ 169 000a FFF7FEFF 		bl	memset
+ 170              	.LVL5:
+ 154:Core/Src/tim.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
+ 171              		.loc 1 154 3 is_stmt 1 view .LVU48
+ 172              		.loc 1 154 27 is_stmt 0 view .LVU49
+ 173 000e 0023     		movs	r3, #0
+ 174 0010 0193     		str	r3, [sp, #4]
+ 175 0012 0293     		str	r3, [sp, #8]
+ 155:Core/Src/tim.c **** 
+ 156:Core/Src/tim.c ****   /* USER CODE BEGIN TIM3_Init 1 */
+ 157:Core/Src/tim.c **** 
+ 158:Core/Src/tim.c ****   /* USER CODE END TIM3_Init 1 */
+ 159:Core/Src/tim.c ****   htim3.Instance = TIM3;
+ 176              		.loc 1 159 3 is_stmt 1 view .LVU50
+ 177              		.loc 1 159 18 is_stmt 0 view .LVU51
+ 178 0014 1148     		ldr	r0, .L15
+ 179 0016 124A     		ldr	r2, .L15+4
+ 180 0018 0260     		str	r2, [r0]
+ 160:Core/Src/tim.c ****   htim3.Init.Prescaler = 0;
+ 181              		.loc 1 160 3 is_stmt 1 view .LVU52
+ 182              		.loc 1 160 24 is_stmt 0 view .LVU53
+ 183 001a 4360     		str	r3, [r0, #4]
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 7
+
+
+ 161:Core/Src/tim.c ****   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 184              		.loc 1 161 3 is_stmt 1 view .LVU54
+ 185              		.loc 1 161 26 is_stmt 0 view .LVU55
+ 186 001c 8360     		str	r3, [r0, #8]
+ 162:Core/Src/tim.c ****   htim3.Init.Period = 65535;
+ 187              		.loc 1 162 3 is_stmt 1 view .LVU56
+ 188              		.loc 1 162 21 is_stmt 0 view .LVU57
+ 189 001e 4FF6FF72 		movw	r2, #65535
+ 190 0022 C260     		str	r2, [r0, #12]
+ 163:Core/Src/tim.c ****   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+ 191              		.loc 1 163 3 is_stmt 1 view .LVU58
+ 192              		.loc 1 163 28 is_stmt 0 view .LVU59
+ 193 0024 0361     		str	r3, [r0, #16]
+ 164:Core/Src/tim.c ****   htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+ 194              		.loc 1 164 3 is_stmt 1 view .LVU60
+ 195              		.loc 1 164 32 is_stmt 0 view .LVU61
+ 196 0026 8361     		str	r3, [r0, #24]
+ 165:Core/Src/tim.c ****   sConfig.EncoderMode = TIM_ENCODERMODE_TI12;
+ 197              		.loc 1 165 3 is_stmt 1 view .LVU62
+ 198              		.loc 1 165 23 is_stmt 0 view .LVU63
+ 199 0028 0323     		movs	r3, #3
+ 200 002a 0393     		str	r3, [sp, #12]
+ 166:Core/Src/tim.c ****   sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+ 201              		.loc 1 166 3 is_stmt 1 view .LVU64
+ 167:Core/Src/tim.c ****   sConfig.IC1Selection = TIM_ICSELECTION_DIRECTTI;
+ 202              		.loc 1 167 3 view .LVU65
+ 203              		.loc 1 167 24 is_stmt 0 view .LVU66
+ 204 002c 0123     		movs	r3, #1
+ 205 002e 0593     		str	r3, [sp, #20]
+ 168:Core/Src/tim.c ****   sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
+ 206              		.loc 1 168 3 is_stmt 1 view .LVU67
+ 169:Core/Src/tim.c ****   sConfig.IC1Filter = 0;
+ 207              		.loc 1 169 3 view .LVU68
+ 170:Core/Src/tim.c ****   sConfig.IC2Polarity = TIM_ICPOLARITY_RISING;
+ 208              		.loc 1 170 3 view .LVU69
+ 171:Core/Src/tim.c ****   sConfig.IC2Selection = TIM_ICSELECTION_DIRECTTI;
+ 209              		.loc 1 171 3 view .LVU70
+ 210              		.loc 1 171 24 is_stmt 0 view .LVU71
+ 211 0030 0993     		str	r3, [sp, #36]
+ 172:Core/Src/tim.c ****   sConfig.IC2Prescaler = TIM_ICPSC_DIV1;
+ 212              		.loc 1 172 3 is_stmt 1 view .LVU72
+ 173:Core/Src/tim.c ****   sConfig.IC2Filter = 0;
+ 213              		.loc 1 173 3 view .LVU73
+ 174:Core/Src/tim.c ****   if (HAL_TIM_Encoder_Init(&htim3, &sConfig) != HAL_OK)
+ 214              		.loc 1 174 3 view .LVU74
+ 215              		.loc 1 174 7 is_stmt 0 view .LVU75
+ 216 0032 03A9     		add	r1, sp, #12
+ 217 0034 FFF7FEFF 		bl	HAL_TIM_Encoder_Init
+ 218              	.LVL6:
+ 219              		.loc 1 174 6 view .LVU76
+ 220 0038 50B9     		cbnz	r0, .L13
+ 221              	.L10:
+ 175:Core/Src/tim.c ****   {
+ 176:Core/Src/tim.c ****     Error_Handler();
+ 177:Core/Src/tim.c ****   }
+ 178:Core/Src/tim.c ****   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+ 222              		.loc 1 178 3 is_stmt 1 view .LVU77
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 8
+
+
+ 223              		.loc 1 178 37 is_stmt 0 view .LVU78
+ 224 003a 0023     		movs	r3, #0
+ 225 003c 0193     		str	r3, [sp, #4]
+ 179:Core/Src/tim.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+ 226              		.loc 1 179 3 is_stmt 1 view .LVU79
+ 227              		.loc 1 179 33 is_stmt 0 view .LVU80
+ 228 003e 0293     		str	r3, [sp, #8]
+ 180:Core/Src/tim.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
+ 229              		.loc 1 180 3 is_stmt 1 view .LVU81
+ 230              		.loc 1 180 7 is_stmt 0 view .LVU82
+ 231 0040 01A9     		add	r1, sp, #4
+ 232 0042 0648     		ldr	r0, .L15
+ 233 0044 FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
+ 234              	.LVL7:
+ 235              		.loc 1 180 6 view .LVU83
+ 236 0048 28B9     		cbnz	r0, .L14
+ 237              	.L9:
+ 181:Core/Src/tim.c ****   {
+ 182:Core/Src/tim.c ****     Error_Handler();
+ 183:Core/Src/tim.c ****   }
+ 184:Core/Src/tim.c ****   /* USER CODE BEGIN TIM3_Init 2 */
+ 185:Core/Src/tim.c **** 
+ 186:Core/Src/tim.c ****   /* USER CODE END TIM3_Init 2 */
+ 187:Core/Src/tim.c **** 
+ 188:Core/Src/tim.c **** }
+ 238              		.loc 1 188 1 view .LVU84
+ 239 004a 0DB0     		add	sp, sp, #52
+ 240              	.LCFI6:
+ 241              		.cfi_remember_state
+ 242              		.cfi_def_cfa_offset 4
+ 243              		@ sp needed
+ 244 004c 5DF804FB 		ldr	pc, [sp], #4
+ 245              	.L13:
+ 246              	.LCFI7:
+ 247              		.cfi_restore_state
+ 176:Core/Src/tim.c ****   }
+ 248              		.loc 1 176 5 is_stmt 1 view .LVU85
+ 249 0050 FFF7FEFF 		bl	Error_Handler
+ 250              	.LVL8:
+ 251 0054 F1E7     		b	.L10
+ 252              	.L14:
+ 182:Core/Src/tim.c ****   }
+ 253              		.loc 1 182 5 view .LVU86
+ 254 0056 FFF7FEFF 		bl	Error_Handler
+ 255              	.LVL9:
+ 256              		.loc 1 188 1 is_stmt 0 view .LVU87
+ 257 005a F6E7     		b	.L9
+ 258              	.L16:
+ 259              		.align	2
+ 260              	.L15:
+ 261 005c 00000000 		.word	.LANCHOR1
+ 262 0060 00040040 		.word	1073742848
+ 263              		.cfi_endproc
+ 264              	.LFE67:
+ 266              		.section	.text.MX_TIM4_Init,"ax",%progbits
+ 267              		.align	1
+ 268              		.global	MX_TIM4_Init
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 9
+
+
+ 269              		.syntax unified
+ 270              		.thumb
+ 271              		.thumb_func
+ 272              		.fpu softvfp
+ 274              	MX_TIM4_Init:
+ 275              	.LFB68:
+ 189:Core/Src/tim.c **** /* TIM4 init function */
+ 190:Core/Src/tim.c **** void MX_TIM4_Init(void)
+ 191:Core/Src/tim.c **** {
+ 276              		.loc 1 191 1 is_stmt 1 view -0
+ 277              		.cfi_startproc
+ 278              		@ args = 0, pretend = 0, frame = 48
+ 279              		@ frame_needed = 0, uses_anonymous_args = 0
+ 280 0000 00B5     		push	{lr}
+ 281              	.LCFI8:
+ 282              		.cfi_def_cfa_offset 4
+ 283              		.cfi_offset 14, -4
+ 284 0002 8DB0     		sub	sp, sp, #52
+ 285              	.LCFI9:
+ 286              		.cfi_def_cfa_offset 56
+ 192:Core/Src/tim.c **** 
+ 193:Core/Src/tim.c ****   /* USER CODE BEGIN TIM4_Init 0 */
+ 194:Core/Src/tim.c **** 
+ 195:Core/Src/tim.c ****   /* USER CODE END TIM4_Init 0 */
+ 196:Core/Src/tim.c **** 
+ 197:Core/Src/tim.c ****   TIM_Encoder_InitTypeDef sConfig = {0};
+ 287              		.loc 1 197 3 view .LVU89
+ 288              		.loc 1 197 27 is_stmt 0 view .LVU90
+ 289 0004 2422     		movs	r2, #36
+ 290 0006 0021     		movs	r1, #0
+ 291 0008 03A8     		add	r0, sp, #12
+ 292 000a FFF7FEFF 		bl	memset
+ 293              	.LVL10:
+ 198:Core/Src/tim.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
+ 294              		.loc 1 198 3 is_stmt 1 view .LVU91
+ 295              		.loc 1 198 27 is_stmt 0 view .LVU92
+ 296 000e 0023     		movs	r3, #0
+ 297 0010 0193     		str	r3, [sp, #4]
+ 298 0012 0293     		str	r3, [sp, #8]
+ 199:Core/Src/tim.c **** 
+ 200:Core/Src/tim.c ****   /* USER CODE BEGIN TIM4_Init 1 */
+ 201:Core/Src/tim.c **** 
+ 202:Core/Src/tim.c ****   /* USER CODE END TIM4_Init 1 */
+ 203:Core/Src/tim.c ****   htim4.Instance = TIM4;
+ 299              		.loc 1 203 3 is_stmt 1 view .LVU93
+ 300              		.loc 1 203 18 is_stmt 0 view .LVU94
+ 301 0014 1148     		ldr	r0, .L23
+ 302 0016 124A     		ldr	r2, .L23+4
+ 303 0018 0260     		str	r2, [r0]
+ 204:Core/Src/tim.c ****   htim4.Init.Prescaler = 0;
+ 304              		.loc 1 204 3 is_stmt 1 view .LVU95
+ 305              		.loc 1 204 24 is_stmt 0 view .LVU96
+ 306 001a 4360     		str	r3, [r0, #4]
+ 205:Core/Src/tim.c ****   htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 307              		.loc 1 205 3 is_stmt 1 view .LVU97
+ 308              		.loc 1 205 26 is_stmt 0 view .LVU98
+ 309 001c 8360     		str	r3, [r0, #8]
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 10
+
+
+ 206:Core/Src/tim.c ****   htim4.Init.Period = 65535;
+ 310              		.loc 1 206 3 is_stmt 1 view .LVU99
+ 311              		.loc 1 206 21 is_stmt 0 view .LVU100
+ 312 001e 4FF6FF72 		movw	r2, #65535
+ 313 0022 C260     		str	r2, [r0, #12]
+ 207:Core/Src/tim.c ****   htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+ 314              		.loc 1 207 3 is_stmt 1 view .LVU101
+ 315              		.loc 1 207 28 is_stmt 0 view .LVU102
+ 316 0024 0361     		str	r3, [r0, #16]
+ 208:Core/Src/tim.c ****   htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+ 317              		.loc 1 208 3 is_stmt 1 view .LVU103
+ 318              		.loc 1 208 32 is_stmt 0 view .LVU104
+ 319 0026 8361     		str	r3, [r0, #24]
+ 209:Core/Src/tim.c ****   sConfig.EncoderMode = TIM_ENCODERMODE_TI12;
+ 320              		.loc 1 209 3 is_stmt 1 view .LVU105
+ 321              		.loc 1 209 23 is_stmt 0 view .LVU106
+ 322 0028 0323     		movs	r3, #3
+ 323 002a 0393     		str	r3, [sp, #12]
+ 210:Core/Src/tim.c ****   sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+ 324              		.loc 1 210 3 is_stmt 1 view .LVU107
+ 211:Core/Src/tim.c ****   sConfig.IC1Selection = TIM_ICSELECTION_DIRECTTI;
+ 325              		.loc 1 211 3 view .LVU108
+ 326              		.loc 1 211 24 is_stmt 0 view .LVU109
+ 327 002c 0123     		movs	r3, #1
+ 328 002e 0593     		str	r3, [sp, #20]
+ 212:Core/Src/tim.c ****   sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
+ 329              		.loc 1 212 3 is_stmt 1 view .LVU110
+ 213:Core/Src/tim.c ****   sConfig.IC1Filter = 0;
+ 330              		.loc 1 213 3 view .LVU111
+ 214:Core/Src/tim.c ****   sConfig.IC2Polarity = TIM_ICPOLARITY_RISING;
+ 331              		.loc 1 214 3 view .LVU112
+ 215:Core/Src/tim.c ****   sConfig.IC2Selection = TIM_ICSELECTION_DIRECTTI;
+ 332              		.loc 1 215 3 view .LVU113
+ 333              		.loc 1 215 24 is_stmt 0 view .LVU114
+ 334 0030 0993     		str	r3, [sp, #36]
+ 216:Core/Src/tim.c ****   sConfig.IC2Prescaler = TIM_ICPSC_DIV1;
+ 335              		.loc 1 216 3 is_stmt 1 view .LVU115
+ 217:Core/Src/tim.c ****   sConfig.IC2Filter = 0;
+ 336              		.loc 1 217 3 view .LVU116
+ 218:Core/Src/tim.c ****   if (HAL_TIM_Encoder_Init(&htim4, &sConfig) != HAL_OK)
+ 337              		.loc 1 218 3 view .LVU117
+ 338              		.loc 1 218 7 is_stmt 0 view .LVU118
+ 339 0032 03A9     		add	r1, sp, #12
+ 340 0034 FFF7FEFF 		bl	HAL_TIM_Encoder_Init
+ 341              	.LVL11:
+ 342              		.loc 1 218 6 view .LVU119
+ 343 0038 50B9     		cbnz	r0, .L21
+ 344              	.L18:
+ 219:Core/Src/tim.c ****   {
+ 220:Core/Src/tim.c ****     Error_Handler();
+ 221:Core/Src/tim.c ****   }
+ 222:Core/Src/tim.c ****   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+ 345              		.loc 1 222 3 is_stmt 1 view .LVU120
+ 346              		.loc 1 222 37 is_stmt 0 view .LVU121
+ 347 003a 0023     		movs	r3, #0
+ 348 003c 0193     		str	r3, [sp, #4]
+ 223:Core/Src/tim.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 11
+
+
+ 349              		.loc 1 223 3 is_stmt 1 view .LVU122
+ 350              		.loc 1 223 33 is_stmt 0 view .LVU123
+ 351 003e 0293     		str	r3, [sp, #8]
+ 224:Core/Src/tim.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim4, &sMasterConfig) != HAL_OK)
+ 352              		.loc 1 224 3 is_stmt 1 view .LVU124
+ 353              		.loc 1 224 7 is_stmt 0 view .LVU125
+ 354 0040 01A9     		add	r1, sp, #4
+ 355 0042 0648     		ldr	r0, .L23
+ 356 0044 FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
+ 357              	.LVL12:
+ 358              		.loc 1 224 6 view .LVU126
+ 359 0048 28B9     		cbnz	r0, .L22
+ 360              	.L17:
+ 225:Core/Src/tim.c ****   {
+ 226:Core/Src/tim.c ****     Error_Handler();
+ 227:Core/Src/tim.c ****   }
+ 228:Core/Src/tim.c ****   /* USER CODE BEGIN TIM4_Init 2 */
+ 229:Core/Src/tim.c **** 
+ 230:Core/Src/tim.c ****   /* USER CODE END TIM4_Init 2 */
+ 231:Core/Src/tim.c **** 
+ 232:Core/Src/tim.c **** }
+ 361              		.loc 1 232 1 view .LVU127
+ 362 004a 0DB0     		add	sp, sp, #52
+ 363              	.LCFI10:
+ 364              		.cfi_remember_state
+ 365              		.cfi_def_cfa_offset 4
+ 366              		@ sp needed
+ 367 004c 5DF804FB 		ldr	pc, [sp], #4
+ 368              	.L21:
+ 369              	.LCFI11:
+ 370              		.cfi_restore_state
+ 220:Core/Src/tim.c ****   }
+ 371              		.loc 1 220 5 is_stmt 1 view .LVU128
+ 372 0050 FFF7FEFF 		bl	Error_Handler
+ 373              	.LVL13:
+ 374 0054 F1E7     		b	.L18
+ 375              	.L22:
+ 226:Core/Src/tim.c ****   }
+ 376              		.loc 1 226 5 view .LVU129
+ 377 0056 FFF7FEFF 		bl	Error_Handler
+ 378              	.LVL14:
+ 379              		.loc 1 232 1 is_stmt 0 view .LVU130
+ 380 005a F6E7     		b	.L17
+ 381              	.L24:
+ 382              		.align	2
+ 383              	.L23:
+ 384 005c 00000000 		.word	.LANCHOR2
+ 385 0060 00080040 		.word	1073743872
+ 386              		.cfi_endproc
+ 387              	.LFE68:
+ 389              		.section	.text.MX_TIM6_Init,"ax",%progbits
+ 390              		.align	1
+ 391              		.global	MX_TIM6_Init
+ 392              		.syntax unified
+ 393              		.thumb
+ 394              		.thumb_func
+ 395              		.fpu softvfp
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 12
+
+
+ 397              	MX_TIM6_Init:
+ 398              	.LFB69:
+ 233:Core/Src/tim.c **** /* TIM6 init function */
+ 234:Core/Src/tim.c **** void MX_TIM6_Init(void)
+ 235:Core/Src/tim.c **** {
+ 399              		.loc 1 235 1 is_stmt 1 view -0
+ 400              		.cfi_startproc
+ 401              		@ args = 0, pretend = 0, frame = 8
+ 402              		@ frame_needed = 0, uses_anonymous_args = 0
+ 403 0000 00B5     		push	{lr}
+ 404              	.LCFI12:
+ 405              		.cfi_def_cfa_offset 4
+ 406              		.cfi_offset 14, -4
+ 407 0002 83B0     		sub	sp, sp, #12
+ 408              	.LCFI13:
+ 409              		.cfi_def_cfa_offset 16
+ 236:Core/Src/tim.c **** 
+ 237:Core/Src/tim.c ****   /* USER CODE BEGIN TIM6_Init 0 */
+ 238:Core/Src/tim.c **** 
+ 239:Core/Src/tim.c ****   /* USER CODE END TIM6_Init 0 */
+ 240:Core/Src/tim.c **** 
+ 241:Core/Src/tim.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
+ 410              		.loc 1 241 3 view .LVU132
+ 411              		.loc 1 241 27 is_stmt 0 view .LVU133
+ 412 0004 0023     		movs	r3, #0
+ 413 0006 0093     		str	r3, [sp]
+ 414 0008 0193     		str	r3, [sp, #4]
+ 242:Core/Src/tim.c **** 
+ 243:Core/Src/tim.c ****   /* USER CODE BEGIN TIM6_Init 1 */
+ 244:Core/Src/tim.c **** 
+ 245:Core/Src/tim.c ****   /* USER CODE END TIM6_Init 1 */
+ 246:Core/Src/tim.c ****   htim6.Instance = TIM6;
+ 415              		.loc 1 246 3 is_stmt 1 view .LVU134
+ 416              		.loc 1 246 18 is_stmt 0 view .LVU135
+ 417 000a 0F48     		ldr	r0, .L31
+ 418 000c 0F4A     		ldr	r2, .L31+4
+ 419 000e 0260     		str	r2, [r0]
+ 247:Core/Src/tim.c ****   htim6.Init.Prescaler = 72-1;
+ 420              		.loc 1 247 3 is_stmt 1 view .LVU136
+ 421              		.loc 1 247 24 is_stmt 0 view .LVU137
+ 422 0010 4722     		movs	r2, #71
+ 423 0012 4260     		str	r2, [r0, #4]
+ 248:Core/Src/tim.c ****   htim6.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 424              		.loc 1 248 3 is_stmt 1 view .LVU138
+ 425              		.loc 1 248 26 is_stmt 0 view .LVU139
+ 426 0014 8360     		str	r3, [r0, #8]
+ 249:Core/Src/tim.c ****   htim6.Init.Period = 20000-1;
+ 427              		.loc 1 249 3 is_stmt 1 view .LVU140
+ 428              		.loc 1 249 21 is_stmt 0 view .LVU141
+ 429 0016 44F61F62 		movw	r2, #19999
+ 430 001a C260     		str	r2, [r0, #12]
+ 250:Core/Src/tim.c ****   htim6.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+ 431              		.loc 1 250 3 is_stmt 1 view .LVU142
+ 432              		.loc 1 250 32 is_stmt 0 view .LVU143
+ 433 001c 8361     		str	r3, [r0, #24]
+ 251:Core/Src/tim.c ****   if (HAL_TIM_Base_Init(&htim6) != HAL_OK)
+ 434              		.loc 1 251 3 is_stmt 1 view .LVU144
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 13
+
+
+ 435              		.loc 1 251 7 is_stmt 0 view .LVU145
+ 436 001e FFF7FEFF 		bl	HAL_TIM_Base_Init
+ 437              	.LVL15:
+ 438              		.loc 1 251 6 view .LVU146
+ 439 0022 50B9     		cbnz	r0, .L29
+ 440              	.L26:
+ 252:Core/Src/tim.c ****   {
+ 253:Core/Src/tim.c ****     Error_Handler();
+ 254:Core/Src/tim.c ****   }
+ 255:Core/Src/tim.c ****   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+ 441              		.loc 1 255 3 is_stmt 1 view .LVU147
+ 442              		.loc 1 255 37 is_stmt 0 view .LVU148
+ 443 0024 0023     		movs	r3, #0
+ 444 0026 0093     		str	r3, [sp]
+ 256:Core/Src/tim.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+ 445              		.loc 1 256 3 is_stmt 1 view .LVU149
+ 446              		.loc 1 256 33 is_stmt 0 view .LVU150
+ 447 0028 0193     		str	r3, [sp, #4]
+ 257:Core/Src/tim.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim6, &sMasterConfig) != HAL_OK)
+ 448              		.loc 1 257 3 is_stmt 1 view .LVU151
+ 449              		.loc 1 257 7 is_stmt 0 view .LVU152
+ 450 002a 6946     		mov	r1, sp
+ 451 002c 0648     		ldr	r0, .L31
+ 452 002e FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
+ 453              	.LVL16:
+ 454              		.loc 1 257 6 view .LVU153
+ 455 0032 28B9     		cbnz	r0, .L30
+ 456              	.L25:
+ 258:Core/Src/tim.c ****   {
+ 259:Core/Src/tim.c ****     Error_Handler();
+ 260:Core/Src/tim.c ****   }
+ 261:Core/Src/tim.c ****   /* USER CODE BEGIN TIM6_Init 2 */
+ 262:Core/Src/tim.c **** 
+ 263:Core/Src/tim.c ****   /* USER CODE END TIM6_Init 2 */
+ 264:Core/Src/tim.c **** 
+ 265:Core/Src/tim.c **** }
+ 457              		.loc 1 265 1 view .LVU154
+ 458 0034 03B0     		add	sp, sp, #12
+ 459              	.LCFI14:
+ 460              		.cfi_remember_state
+ 461              		.cfi_def_cfa_offset 4
+ 462              		@ sp needed
+ 463 0036 5DF804FB 		ldr	pc, [sp], #4
+ 464              	.L29:
+ 465              	.LCFI15:
+ 466              		.cfi_restore_state
+ 253:Core/Src/tim.c ****   }
+ 467              		.loc 1 253 5 is_stmt 1 view .LVU155
+ 468 003a FFF7FEFF 		bl	Error_Handler
+ 469              	.LVL17:
+ 470 003e F1E7     		b	.L26
+ 471              	.L30:
+ 259:Core/Src/tim.c ****   }
+ 472              		.loc 1 259 5 view .LVU156
+ 473 0040 FFF7FEFF 		bl	Error_Handler
+ 474              	.LVL18:
+ 475              		.loc 1 265 1 is_stmt 0 view .LVU157
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 14
+
+
+ 476 0044 F6E7     		b	.L25
+ 477              	.L32:
+ 478 0046 00BF     		.align	2
+ 479              	.L31:
+ 480 0048 00000000 		.word	.LANCHOR3
+ 481 004c 00100040 		.word	1073745920
+ 482              		.cfi_endproc
+ 483              	.LFE69:
+ 485              		.section	.text.MX_TIM8_Init,"ax",%progbits
+ 486              		.align	1
+ 487              		.global	MX_TIM8_Init
+ 488              		.syntax unified
+ 489              		.thumb
+ 490              		.thumb_func
+ 491              		.fpu softvfp
+ 493              	MX_TIM8_Init:
+ 494              	.LFB70:
+ 266:Core/Src/tim.c **** /* TIM8 init function */
+ 267:Core/Src/tim.c **** void MX_TIM8_Init(void)
+ 268:Core/Src/tim.c **** {
+ 495              		.loc 1 268 1 is_stmt 1 view -0
+ 496              		.cfi_startproc
+ 497              		@ args = 0, pretend = 0, frame = 48
+ 498              		@ frame_needed = 0, uses_anonymous_args = 0
+ 499 0000 00B5     		push	{lr}
+ 500              	.LCFI16:
+ 501              		.cfi_def_cfa_offset 4
+ 502              		.cfi_offset 14, -4
+ 503 0002 8DB0     		sub	sp, sp, #52
+ 504              	.LCFI17:
+ 505              		.cfi_def_cfa_offset 56
+ 269:Core/Src/tim.c **** 
+ 270:Core/Src/tim.c ****   /* USER CODE BEGIN TIM8_Init 0 */
+ 271:Core/Src/tim.c **** 
+ 272:Core/Src/tim.c ****   /* USER CODE END TIM8_Init 0 */
+ 273:Core/Src/tim.c **** 
+ 274:Core/Src/tim.c ****   TIM_Encoder_InitTypeDef sConfig = {0};
+ 506              		.loc 1 274 3 view .LVU159
+ 507              		.loc 1 274 27 is_stmt 0 view .LVU160
+ 508 0004 2422     		movs	r2, #36
+ 509 0006 0021     		movs	r1, #0
+ 510 0008 03A8     		add	r0, sp, #12
+ 511 000a FFF7FEFF 		bl	memset
+ 512              	.LVL19:
+ 275:Core/Src/tim.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
+ 513              		.loc 1 275 3 is_stmt 1 view .LVU161
+ 514              		.loc 1 275 27 is_stmt 0 view .LVU162
+ 515 000e 0023     		movs	r3, #0
+ 516 0010 0193     		str	r3, [sp, #4]
+ 517 0012 0293     		str	r3, [sp, #8]
+ 276:Core/Src/tim.c **** 
+ 277:Core/Src/tim.c ****   /* USER CODE BEGIN TIM8_Init 1 */
+ 278:Core/Src/tim.c **** 
+ 279:Core/Src/tim.c ****   /* USER CODE END TIM8_Init 1 */
+ 280:Core/Src/tim.c ****   htim8.Instance = TIM8;
+ 518              		.loc 1 280 3 is_stmt 1 view .LVU163
+ 519              		.loc 1 280 18 is_stmt 0 view .LVU164
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 15
+
+
+ 520 0014 1248     		ldr	r0, .L39
+ 521 0016 134A     		ldr	r2, .L39+4
+ 522 0018 0260     		str	r2, [r0]
+ 281:Core/Src/tim.c ****   htim8.Init.Prescaler = 0;
+ 523              		.loc 1 281 3 is_stmt 1 view .LVU165
+ 524              		.loc 1 281 24 is_stmt 0 view .LVU166
+ 525 001a 4360     		str	r3, [r0, #4]
+ 282:Core/Src/tim.c ****   htim8.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 526              		.loc 1 282 3 is_stmt 1 view .LVU167
+ 527              		.loc 1 282 26 is_stmt 0 view .LVU168
+ 528 001c 8360     		str	r3, [r0, #8]
+ 283:Core/Src/tim.c ****   htim8.Init.Period = 65535;
+ 529              		.loc 1 283 3 is_stmt 1 view .LVU169
+ 530              		.loc 1 283 21 is_stmt 0 view .LVU170
+ 531 001e 4FF6FF72 		movw	r2, #65535
+ 532 0022 C260     		str	r2, [r0, #12]
+ 284:Core/Src/tim.c ****   htim8.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+ 533              		.loc 1 284 3 is_stmt 1 view .LVU171
+ 534              		.loc 1 284 28 is_stmt 0 view .LVU172
+ 535 0024 0361     		str	r3, [r0, #16]
+ 285:Core/Src/tim.c ****   htim8.Init.RepetitionCounter = 0;
+ 536              		.loc 1 285 3 is_stmt 1 view .LVU173
+ 537              		.loc 1 285 32 is_stmt 0 view .LVU174
+ 538 0026 4361     		str	r3, [r0, #20]
+ 286:Core/Src/tim.c ****   htim8.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+ 539              		.loc 1 286 3 is_stmt 1 view .LVU175
+ 540              		.loc 1 286 32 is_stmt 0 view .LVU176
+ 541 0028 8361     		str	r3, [r0, #24]
+ 287:Core/Src/tim.c ****   sConfig.EncoderMode = TIM_ENCODERMODE_TI12;
+ 542              		.loc 1 287 3 is_stmt 1 view .LVU177
+ 543              		.loc 1 287 23 is_stmt 0 view .LVU178
+ 544 002a 0323     		movs	r3, #3
+ 545 002c 0393     		str	r3, [sp, #12]
+ 288:Core/Src/tim.c ****   sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+ 546              		.loc 1 288 3 is_stmt 1 view .LVU179
+ 289:Core/Src/tim.c ****   sConfig.IC1Selection = TIM_ICSELECTION_DIRECTTI;
+ 547              		.loc 1 289 3 view .LVU180
+ 548              		.loc 1 289 24 is_stmt 0 view .LVU181
+ 549 002e 0123     		movs	r3, #1
+ 550 0030 0593     		str	r3, [sp, #20]
+ 290:Core/Src/tim.c ****   sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
+ 551              		.loc 1 290 3 is_stmt 1 view .LVU182
+ 291:Core/Src/tim.c ****   sConfig.IC1Filter = 0;
+ 552              		.loc 1 291 3 view .LVU183
+ 292:Core/Src/tim.c ****   sConfig.IC2Polarity = TIM_ICPOLARITY_RISING;
+ 553              		.loc 1 292 3 view .LVU184
+ 293:Core/Src/tim.c ****   sConfig.IC2Selection = TIM_ICSELECTION_DIRECTTI;
+ 554              		.loc 1 293 3 view .LVU185
+ 555              		.loc 1 293 24 is_stmt 0 view .LVU186
+ 556 0032 0993     		str	r3, [sp, #36]
+ 294:Core/Src/tim.c ****   sConfig.IC2Prescaler = TIM_ICPSC_DIV1;
+ 557              		.loc 1 294 3 is_stmt 1 view .LVU187
+ 295:Core/Src/tim.c ****   sConfig.IC2Filter = 0;
+ 558              		.loc 1 295 3 view .LVU188
+ 296:Core/Src/tim.c ****   if (HAL_TIM_Encoder_Init(&htim8, &sConfig) != HAL_OK)
+ 559              		.loc 1 296 3 view .LVU189
+ 560              		.loc 1 296 7 is_stmt 0 view .LVU190
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 16
+
+
+ 561 0034 03A9     		add	r1, sp, #12
+ 562 0036 FFF7FEFF 		bl	HAL_TIM_Encoder_Init
+ 563              	.LVL20:
+ 564              		.loc 1 296 6 view .LVU191
+ 565 003a 50B9     		cbnz	r0, .L37
+ 566              	.L34:
+ 297:Core/Src/tim.c ****   {
+ 298:Core/Src/tim.c ****     Error_Handler();
+ 299:Core/Src/tim.c ****   }
+ 300:Core/Src/tim.c ****   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+ 567              		.loc 1 300 3 is_stmt 1 view .LVU192
+ 568              		.loc 1 300 37 is_stmt 0 view .LVU193
+ 569 003c 0023     		movs	r3, #0
+ 570 003e 0193     		str	r3, [sp, #4]
+ 301:Core/Src/tim.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+ 571              		.loc 1 301 3 is_stmt 1 view .LVU194
+ 572              		.loc 1 301 33 is_stmt 0 view .LVU195
+ 573 0040 0293     		str	r3, [sp, #8]
+ 302:Core/Src/tim.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim8, &sMasterConfig) != HAL_OK)
+ 574              		.loc 1 302 3 is_stmt 1 view .LVU196
+ 575              		.loc 1 302 7 is_stmt 0 view .LVU197
+ 576 0042 01A9     		add	r1, sp, #4
+ 577 0044 0648     		ldr	r0, .L39
+ 578 0046 FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
+ 579              	.LVL21:
+ 580              		.loc 1 302 6 view .LVU198
+ 581 004a 28B9     		cbnz	r0, .L38
+ 582              	.L33:
+ 303:Core/Src/tim.c ****   {
+ 304:Core/Src/tim.c ****     Error_Handler();
+ 305:Core/Src/tim.c ****   }
+ 306:Core/Src/tim.c ****   /* USER CODE BEGIN TIM8_Init 2 */
+ 307:Core/Src/tim.c **** 
+ 308:Core/Src/tim.c ****   /* USER CODE END TIM8_Init 2 */
+ 309:Core/Src/tim.c **** 
+ 310:Core/Src/tim.c **** }
+ 583              		.loc 1 310 1 view .LVU199
+ 584 004c 0DB0     		add	sp, sp, #52
+ 585              	.LCFI18:
+ 586              		.cfi_remember_state
+ 587              		.cfi_def_cfa_offset 4
+ 588              		@ sp needed
+ 589 004e 5DF804FB 		ldr	pc, [sp], #4
+ 590              	.L37:
+ 591              	.LCFI19:
+ 592              		.cfi_restore_state
+ 298:Core/Src/tim.c ****   }
+ 593              		.loc 1 298 5 is_stmt 1 view .LVU200
+ 594 0052 FFF7FEFF 		bl	Error_Handler
+ 595              	.LVL22:
+ 596 0056 F1E7     		b	.L34
+ 597              	.L38:
+ 304:Core/Src/tim.c ****   }
+ 598              		.loc 1 304 5 view .LVU201
+ 599 0058 FFF7FEFF 		bl	Error_Handler
+ 600              	.LVL23:
+ 601              		.loc 1 310 1 is_stmt 0 view .LVU202
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 17
+
+
+ 602 005c F6E7     		b	.L33
+ 603              	.L40:
+ 604 005e 00BF     		.align	2
+ 605              	.L39:
+ 606 0060 00000000 		.word	.LANCHOR4
+ 607 0064 00340140 		.word	1073820672
+ 608              		.cfi_endproc
+ 609              	.LFE70:
+ 611              		.section	.text.HAL_TIM_Encoder_MspInit,"ax",%progbits
+ 612              		.align	1
+ 613              		.global	HAL_TIM_Encoder_MspInit
+ 614              		.syntax unified
+ 615              		.thumb
+ 616              		.thumb_func
+ 617              		.fpu softvfp
+ 619              	HAL_TIM_Encoder_MspInit:
+ 620              	.LVL24:
+ 621              	.LFB71:
+ 311:Core/Src/tim.c **** 
+ 312:Core/Src/tim.c **** void HAL_TIM_Encoder_MspInit(TIM_HandleTypeDef* tim_encoderHandle)
+ 313:Core/Src/tim.c **** {
+ 622              		.loc 1 313 1 is_stmt 1 view -0
+ 623              		.cfi_startproc
+ 624              		@ args = 0, pretend = 0, frame = 48
+ 625              		@ frame_needed = 0, uses_anonymous_args = 0
+ 626              		.loc 1 313 1 is_stmt 0 view .LVU204
+ 627 0000 00B5     		push	{lr}
+ 628              	.LCFI20:
+ 629              		.cfi_def_cfa_offset 4
+ 630              		.cfi_offset 14, -4
+ 631 0002 8DB0     		sub	sp, sp, #52
+ 632              	.LCFI21:
+ 633              		.cfi_def_cfa_offset 56
+ 314:Core/Src/tim.c **** 
+ 315:Core/Src/tim.c ****   GPIO_InitTypeDef GPIO_InitStruct = {0};
+ 634              		.loc 1 315 3 is_stmt 1 view .LVU205
+ 635              		.loc 1 315 20 is_stmt 0 view .LVU206
+ 636 0004 0023     		movs	r3, #0
+ 637 0006 0893     		str	r3, [sp, #32]
+ 638 0008 0993     		str	r3, [sp, #36]
+ 639 000a 0A93     		str	r3, [sp, #40]
+ 640 000c 0B93     		str	r3, [sp, #44]
+ 316:Core/Src/tim.c ****   if(tim_encoderHandle->Instance==TIM1)
+ 641              		.loc 1 316 3 is_stmt 1 view .LVU207
+ 642              		.loc 1 316 23 is_stmt 0 view .LVU208
+ 643 000e 0368     		ldr	r3, [r0]
+ 644              		.loc 1 316 5 view .LVU209
+ 645 0010 3B4A     		ldr	r2, .L51
+ 646 0012 9342     		cmp	r3, r2
+ 647 0014 0BD0     		beq	.L47
+ 317:Core/Src/tim.c ****   {
+ 318:Core/Src/tim.c ****   /* USER CODE BEGIN TIM1_MspInit 0 */
+ 319:Core/Src/tim.c **** 
+ 320:Core/Src/tim.c ****   /* USER CODE END TIM1_MspInit 0 */
+ 321:Core/Src/tim.c ****     /* TIM1 clock enable */
+ 322:Core/Src/tim.c ****     __HAL_RCC_TIM1_CLK_ENABLE();
+ 323:Core/Src/tim.c **** 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 18
+
+
+ 324:Core/Src/tim.c ****     __HAL_RCC_GPIOA_CLK_ENABLE();
+ 325:Core/Src/tim.c ****     /**TIM1 GPIO Configuration
+ 326:Core/Src/tim.c ****     PA8     ------> TIM1_CH1
+ 327:Core/Src/tim.c ****     PA9     ------> TIM1_CH2
+ 328:Core/Src/tim.c ****     */
+ 329:Core/Src/tim.c ****     GPIO_InitStruct.Pin = GPIO_PIN_8|GPIO_PIN_9;
+ 330:Core/Src/tim.c ****     GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+ 331:Core/Src/tim.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 332:Core/Src/tim.c ****     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+ 333:Core/Src/tim.c **** 
+ 334:Core/Src/tim.c ****   /* USER CODE BEGIN TIM1_MspInit 1 */
+ 335:Core/Src/tim.c **** 
+ 336:Core/Src/tim.c ****   /* USER CODE END TIM1_MspInit 1 */
+ 337:Core/Src/tim.c ****   }
+ 338:Core/Src/tim.c ****   else if(tim_encoderHandle->Instance==TIM3)
+ 648              		.loc 1 338 8 is_stmt 1 view .LVU210
+ 649              		.loc 1 338 10 is_stmt 0 view .LVU211
+ 650 0016 3B4A     		ldr	r2, .L51+4
+ 651 0018 9342     		cmp	r3, r2
+ 652 001a 23D0     		beq	.L48
+ 339:Core/Src/tim.c ****   {
+ 340:Core/Src/tim.c ****   /* USER CODE BEGIN TIM3_MspInit 0 */
+ 341:Core/Src/tim.c **** 
+ 342:Core/Src/tim.c ****   /* USER CODE END TIM3_MspInit 0 */
+ 343:Core/Src/tim.c ****     /* TIM3 clock enable */
+ 344:Core/Src/tim.c ****     __HAL_RCC_TIM3_CLK_ENABLE();
+ 345:Core/Src/tim.c **** 
+ 346:Core/Src/tim.c ****     __HAL_RCC_GPIOA_CLK_ENABLE();
+ 347:Core/Src/tim.c ****     /**TIM3 GPIO Configuration
+ 348:Core/Src/tim.c ****     PA6     ------> TIM3_CH1
+ 349:Core/Src/tim.c ****     PA7     ------> TIM3_CH2
+ 350:Core/Src/tim.c ****     */
+ 351:Core/Src/tim.c ****     GPIO_InitStruct.Pin = GPIO_PIN_6|GPIO_PIN_7;
+ 352:Core/Src/tim.c ****     GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+ 353:Core/Src/tim.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 354:Core/Src/tim.c ****     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+ 355:Core/Src/tim.c **** 
+ 356:Core/Src/tim.c ****   /* USER CODE BEGIN TIM3_MspInit 1 */
+ 357:Core/Src/tim.c **** 
+ 358:Core/Src/tim.c ****   /* USER CODE END TIM3_MspInit 1 */
+ 359:Core/Src/tim.c ****   }
+ 360:Core/Src/tim.c ****   else if(tim_encoderHandle->Instance==TIM4)
+ 653              		.loc 1 360 8 is_stmt 1 view .LVU212
+ 654              		.loc 1 360 10 is_stmt 0 view .LVU213
+ 655 001c 3A4A     		ldr	r2, .L51+8
+ 656 001e 9342     		cmp	r3, r2
+ 657 0020 3AD0     		beq	.L49
+ 361:Core/Src/tim.c ****   {
+ 362:Core/Src/tim.c ****   /* USER CODE BEGIN TIM4_MspInit 0 */
+ 363:Core/Src/tim.c **** 
+ 364:Core/Src/tim.c ****   /* USER CODE END TIM4_MspInit 0 */
+ 365:Core/Src/tim.c ****     /* TIM4 clock enable */
+ 366:Core/Src/tim.c ****     __HAL_RCC_TIM4_CLK_ENABLE();
+ 367:Core/Src/tim.c **** 
+ 368:Core/Src/tim.c ****     __HAL_RCC_GPIOB_CLK_ENABLE();
+ 369:Core/Src/tim.c ****     /**TIM4 GPIO Configuration
+ 370:Core/Src/tim.c ****     PB6     ------> TIM4_CH1
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 19
+
+
+ 371:Core/Src/tim.c ****     PB7     ------> TIM4_CH2
+ 372:Core/Src/tim.c ****     */
+ 373:Core/Src/tim.c ****     GPIO_InitStruct.Pin = GPIO_PIN_6|GPIO_PIN_7;
+ 374:Core/Src/tim.c ****     GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+ 375:Core/Src/tim.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 376:Core/Src/tim.c ****     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+ 377:Core/Src/tim.c **** 
+ 378:Core/Src/tim.c ****   /* USER CODE BEGIN TIM4_MspInit 1 */
+ 379:Core/Src/tim.c **** 
+ 380:Core/Src/tim.c ****   /* USER CODE END TIM4_MspInit 1 */
+ 381:Core/Src/tim.c ****   }
+ 382:Core/Src/tim.c ****   else if(tim_encoderHandle->Instance==TIM8)
+ 658              		.loc 1 382 8 is_stmt 1 view .LVU214
+ 659              		.loc 1 382 10 is_stmt 0 view .LVU215
+ 660 0022 3A4A     		ldr	r2, .L51+12
+ 661 0024 9342     		cmp	r3, r2
+ 662 0026 51D0     		beq	.L50
+ 663              	.LVL25:
+ 664              	.L41:
+ 383:Core/Src/tim.c ****   {
+ 384:Core/Src/tim.c ****   /* USER CODE BEGIN TIM8_MspInit 0 */
+ 385:Core/Src/tim.c **** 
+ 386:Core/Src/tim.c ****   /* USER CODE END TIM8_MspInit 0 */
+ 387:Core/Src/tim.c ****     /* TIM8 clock enable */
+ 388:Core/Src/tim.c ****     __HAL_RCC_TIM8_CLK_ENABLE();
+ 389:Core/Src/tim.c **** 
+ 390:Core/Src/tim.c ****     __HAL_RCC_GPIOC_CLK_ENABLE();
+ 391:Core/Src/tim.c ****     /**TIM8 GPIO Configuration
+ 392:Core/Src/tim.c ****     PC6     ------> TIM8_CH1
+ 393:Core/Src/tim.c ****     PC7     ------> TIM8_CH2
+ 394:Core/Src/tim.c ****     */
+ 395:Core/Src/tim.c ****     GPIO_InitStruct.Pin = GPIO_PIN_6|GPIO_PIN_7;
+ 396:Core/Src/tim.c ****     GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+ 397:Core/Src/tim.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 398:Core/Src/tim.c ****     HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+ 399:Core/Src/tim.c **** 
+ 400:Core/Src/tim.c ****   /* USER CODE BEGIN TIM8_MspInit 1 */
+ 401:Core/Src/tim.c **** 
+ 402:Core/Src/tim.c ****   /* USER CODE END TIM8_MspInit 1 */
+ 403:Core/Src/tim.c ****   }
+ 404:Core/Src/tim.c **** }
+ 665              		.loc 1 404 1 view .LVU216
+ 666 0028 0DB0     		add	sp, sp, #52
+ 667              	.LCFI22:
+ 668              		.cfi_remember_state
+ 669              		.cfi_def_cfa_offset 4
+ 670              		@ sp needed
+ 671 002a 5DF804FB 		ldr	pc, [sp], #4
+ 672              	.LVL26:
+ 673              	.L47:
+ 674              	.LCFI23:
+ 675              		.cfi_restore_state
+ 322:Core/Src/tim.c **** 
+ 676              		.loc 1 322 5 is_stmt 1 view .LVU217
+ 677              	.LBB2:
+ 322:Core/Src/tim.c **** 
+ 678              		.loc 1 322 5 view .LVU218
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 20
+
+
+ 322:Core/Src/tim.c **** 
+ 679              		.loc 1 322 5 view .LVU219
+ 680 002e 384B     		ldr	r3, .L51+16
+ 681 0030 9A69     		ldr	r2, [r3, #24]
+ 682 0032 42F40062 		orr	r2, r2, #2048
+ 683 0036 9A61     		str	r2, [r3, #24]
+ 322:Core/Src/tim.c **** 
+ 684              		.loc 1 322 5 view .LVU220
+ 685 0038 9A69     		ldr	r2, [r3, #24]
+ 686 003a 02F40062 		and	r2, r2, #2048
+ 687 003e 0092     		str	r2, [sp]
+ 322:Core/Src/tim.c **** 
+ 688              		.loc 1 322 5 view .LVU221
+ 689 0040 009A     		ldr	r2, [sp]
+ 690              	.LBE2:
+ 322:Core/Src/tim.c **** 
+ 691              		.loc 1 322 5 view .LVU222
+ 324:Core/Src/tim.c ****     /**TIM1 GPIO Configuration
+ 692              		.loc 1 324 5 view .LVU223
+ 693              	.LBB3:
+ 324:Core/Src/tim.c ****     /**TIM1 GPIO Configuration
+ 694              		.loc 1 324 5 view .LVU224
+ 324:Core/Src/tim.c ****     /**TIM1 GPIO Configuration
+ 695              		.loc 1 324 5 view .LVU225
+ 696 0042 9A69     		ldr	r2, [r3, #24]
+ 697 0044 42F00402 		orr	r2, r2, #4
+ 698 0048 9A61     		str	r2, [r3, #24]
+ 324:Core/Src/tim.c ****     /**TIM1 GPIO Configuration
+ 699              		.loc 1 324 5 view .LVU226
+ 700 004a 9B69     		ldr	r3, [r3, #24]
+ 701 004c 03F00403 		and	r3, r3, #4
+ 702 0050 0193     		str	r3, [sp, #4]
+ 324:Core/Src/tim.c ****     /**TIM1 GPIO Configuration
+ 703              		.loc 1 324 5 view .LVU227
+ 704 0052 019B     		ldr	r3, [sp, #4]
+ 705              	.LBE3:
+ 324:Core/Src/tim.c ****     /**TIM1 GPIO Configuration
+ 706              		.loc 1 324 5 view .LVU228
+ 329:Core/Src/tim.c ****     GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+ 707              		.loc 1 329 5 view .LVU229
+ 329:Core/Src/tim.c ****     GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+ 708              		.loc 1 329 25 is_stmt 0 view .LVU230
+ 709 0054 4FF44073 		mov	r3, #768
+ 710 0058 0893     		str	r3, [sp, #32]
+ 330:Core/Src/tim.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 711              		.loc 1 330 5 is_stmt 1 view .LVU231
+ 331:Core/Src/tim.c ****     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+ 712              		.loc 1 331 5 view .LVU232
+ 332:Core/Src/tim.c **** 
+ 713              		.loc 1 332 5 view .LVU233
+ 714 005a 08A9     		add	r1, sp, #32
+ 715 005c 2D48     		ldr	r0, .L51+20
+ 716              	.LVL27:
+ 332:Core/Src/tim.c **** 
+ 717              		.loc 1 332 5 is_stmt 0 view .LVU234
+ 718 005e FFF7FEFF 		bl	HAL_GPIO_Init
+ 719              	.LVL28:
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 21
+
+
+ 720 0062 E1E7     		b	.L41
+ 721              	.LVL29:
+ 722              	.L48:
+ 344:Core/Src/tim.c **** 
+ 723              		.loc 1 344 5 is_stmt 1 view .LVU235
+ 724              	.LBB4:
+ 344:Core/Src/tim.c **** 
+ 725              		.loc 1 344 5 view .LVU236
+ 344:Core/Src/tim.c **** 
+ 726              		.loc 1 344 5 view .LVU237
+ 727 0064 2A4B     		ldr	r3, .L51+16
+ 728 0066 DA69     		ldr	r2, [r3, #28]
+ 729 0068 42F00202 		orr	r2, r2, #2
+ 730 006c DA61     		str	r2, [r3, #28]
+ 344:Core/Src/tim.c **** 
+ 731              		.loc 1 344 5 view .LVU238
+ 732 006e DA69     		ldr	r2, [r3, #28]
+ 733 0070 02F00202 		and	r2, r2, #2
+ 734 0074 0292     		str	r2, [sp, #8]
+ 344:Core/Src/tim.c **** 
+ 735              		.loc 1 344 5 view .LVU239
+ 736 0076 029A     		ldr	r2, [sp, #8]
+ 737              	.LBE4:
+ 344:Core/Src/tim.c **** 
+ 738              		.loc 1 344 5 view .LVU240
+ 346:Core/Src/tim.c ****     /**TIM3 GPIO Configuration
+ 739              		.loc 1 346 5 view .LVU241
+ 740              	.LBB5:
+ 346:Core/Src/tim.c ****     /**TIM3 GPIO Configuration
+ 741              		.loc 1 346 5 view .LVU242
+ 346:Core/Src/tim.c ****     /**TIM3 GPIO Configuration
+ 742              		.loc 1 346 5 view .LVU243
+ 743 0078 9A69     		ldr	r2, [r3, #24]
+ 744 007a 42F00402 		orr	r2, r2, #4
+ 745 007e 9A61     		str	r2, [r3, #24]
+ 346:Core/Src/tim.c ****     /**TIM3 GPIO Configuration
+ 746              		.loc 1 346 5 view .LVU244
+ 747 0080 9B69     		ldr	r3, [r3, #24]
+ 748 0082 03F00403 		and	r3, r3, #4
+ 749 0086 0393     		str	r3, [sp, #12]
+ 346:Core/Src/tim.c ****     /**TIM3 GPIO Configuration
+ 750              		.loc 1 346 5 view .LVU245
+ 751 0088 039B     		ldr	r3, [sp, #12]
+ 752              	.LBE5:
+ 346:Core/Src/tim.c ****     /**TIM3 GPIO Configuration
+ 753              		.loc 1 346 5 view .LVU246
+ 351:Core/Src/tim.c ****     GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+ 754              		.loc 1 351 5 view .LVU247
+ 351:Core/Src/tim.c ****     GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+ 755              		.loc 1 351 25 is_stmt 0 view .LVU248
+ 756 008a C023     		movs	r3, #192
+ 757 008c 0893     		str	r3, [sp, #32]
+ 352:Core/Src/tim.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 758              		.loc 1 352 5 is_stmt 1 view .LVU249
+ 353:Core/Src/tim.c ****     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+ 759              		.loc 1 353 5 view .LVU250
+ 354:Core/Src/tim.c **** 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 22
+
+
+ 760              		.loc 1 354 5 view .LVU251
+ 761 008e 08A9     		add	r1, sp, #32
+ 762 0090 2048     		ldr	r0, .L51+20
+ 763              	.LVL30:
+ 354:Core/Src/tim.c **** 
+ 764              		.loc 1 354 5 is_stmt 0 view .LVU252
+ 765 0092 FFF7FEFF 		bl	HAL_GPIO_Init
+ 766              	.LVL31:
+ 767 0096 C7E7     		b	.L41
+ 768              	.LVL32:
+ 769              	.L49:
+ 366:Core/Src/tim.c **** 
+ 770              		.loc 1 366 5 is_stmt 1 view .LVU253
+ 771              	.LBB6:
+ 366:Core/Src/tim.c **** 
+ 772              		.loc 1 366 5 view .LVU254
+ 366:Core/Src/tim.c **** 
+ 773              		.loc 1 366 5 view .LVU255
+ 774 0098 1D4B     		ldr	r3, .L51+16
+ 775 009a DA69     		ldr	r2, [r3, #28]
+ 776 009c 42F00402 		orr	r2, r2, #4
+ 777 00a0 DA61     		str	r2, [r3, #28]
+ 366:Core/Src/tim.c **** 
+ 778              		.loc 1 366 5 view .LVU256
+ 779 00a2 DA69     		ldr	r2, [r3, #28]
+ 780 00a4 02F00402 		and	r2, r2, #4
+ 781 00a8 0492     		str	r2, [sp, #16]
+ 366:Core/Src/tim.c **** 
+ 782              		.loc 1 366 5 view .LVU257
+ 783 00aa 049A     		ldr	r2, [sp, #16]
+ 784              	.LBE6:
+ 366:Core/Src/tim.c **** 
+ 785              		.loc 1 366 5 view .LVU258
+ 368:Core/Src/tim.c ****     /**TIM4 GPIO Configuration
+ 786              		.loc 1 368 5 view .LVU259
+ 787              	.LBB7:
+ 368:Core/Src/tim.c ****     /**TIM4 GPIO Configuration
+ 788              		.loc 1 368 5 view .LVU260
+ 368:Core/Src/tim.c ****     /**TIM4 GPIO Configuration
+ 789              		.loc 1 368 5 view .LVU261
+ 790 00ac 9A69     		ldr	r2, [r3, #24]
+ 791 00ae 42F00802 		orr	r2, r2, #8
+ 792 00b2 9A61     		str	r2, [r3, #24]
+ 368:Core/Src/tim.c ****     /**TIM4 GPIO Configuration
+ 793              		.loc 1 368 5 view .LVU262
+ 794 00b4 9B69     		ldr	r3, [r3, #24]
+ 795 00b6 03F00803 		and	r3, r3, #8
+ 796 00ba 0593     		str	r3, [sp, #20]
+ 368:Core/Src/tim.c ****     /**TIM4 GPIO Configuration
+ 797              		.loc 1 368 5 view .LVU263
+ 798 00bc 059B     		ldr	r3, [sp, #20]
+ 799              	.LBE7:
+ 368:Core/Src/tim.c ****     /**TIM4 GPIO Configuration
+ 800              		.loc 1 368 5 view .LVU264
+ 373:Core/Src/tim.c ****     GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+ 801              		.loc 1 373 5 view .LVU265
+ 373:Core/Src/tim.c ****     GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 23
+
+
+ 802              		.loc 1 373 25 is_stmt 0 view .LVU266
+ 803 00be C023     		movs	r3, #192
+ 804 00c0 0893     		str	r3, [sp, #32]
+ 374:Core/Src/tim.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 805              		.loc 1 374 5 is_stmt 1 view .LVU267
+ 375:Core/Src/tim.c ****     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+ 806              		.loc 1 375 5 view .LVU268
+ 376:Core/Src/tim.c **** 
+ 807              		.loc 1 376 5 view .LVU269
+ 808 00c2 08A9     		add	r1, sp, #32
+ 809 00c4 1448     		ldr	r0, .L51+24
+ 810              	.LVL33:
+ 376:Core/Src/tim.c **** 
+ 811              		.loc 1 376 5 is_stmt 0 view .LVU270
+ 812 00c6 FFF7FEFF 		bl	HAL_GPIO_Init
+ 813              	.LVL34:
+ 814 00ca ADE7     		b	.L41
+ 815              	.LVL35:
+ 816              	.L50:
+ 388:Core/Src/tim.c **** 
+ 817              		.loc 1 388 5 is_stmt 1 view .LVU271
+ 818              	.LBB8:
+ 388:Core/Src/tim.c **** 
+ 819              		.loc 1 388 5 view .LVU272
+ 388:Core/Src/tim.c **** 
+ 820              		.loc 1 388 5 view .LVU273
+ 821 00cc 104B     		ldr	r3, .L51+16
+ 822 00ce 9A69     		ldr	r2, [r3, #24]
+ 823 00d0 42F40052 		orr	r2, r2, #8192
+ 824 00d4 9A61     		str	r2, [r3, #24]
+ 388:Core/Src/tim.c **** 
+ 825              		.loc 1 388 5 view .LVU274
+ 826 00d6 9A69     		ldr	r2, [r3, #24]
+ 827 00d8 02F40052 		and	r2, r2, #8192
+ 828 00dc 0692     		str	r2, [sp, #24]
+ 388:Core/Src/tim.c **** 
+ 829              		.loc 1 388 5 view .LVU275
+ 830 00de 069A     		ldr	r2, [sp, #24]
+ 831              	.LBE8:
+ 388:Core/Src/tim.c **** 
+ 832              		.loc 1 388 5 view .LVU276
+ 390:Core/Src/tim.c ****     /**TIM8 GPIO Configuration
+ 833              		.loc 1 390 5 view .LVU277
+ 834              	.LBB9:
+ 390:Core/Src/tim.c ****     /**TIM8 GPIO Configuration
+ 835              		.loc 1 390 5 view .LVU278
+ 390:Core/Src/tim.c ****     /**TIM8 GPIO Configuration
+ 836              		.loc 1 390 5 view .LVU279
+ 837 00e0 9A69     		ldr	r2, [r3, #24]
+ 838 00e2 42F01002 		orr	r2, r2, #16
+ 839 00e6 9A61     		str	r2, [r3, #24]
+ 390:Core/Src/tim.c ****     /**TIM8 GPIO Configuration
+ 840              		.loc 1 390 5 view .LVU280
+ 841 00e8 9B69     		ldr	r3, [r3, #24]
+ 842 00ea 03F01003 		and	r3, r3, #16
+ 843 00ee 0793     		str	r3, [sp, #28]
+ 390:Core/Src/tim.c ****     /**TIM8 GPIO Configuration
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 24
+
+
+ 844              		.loc 1 390 5 view .LVU281
+ 845 00f0 079B     		ldr	r3, [sp, #28]
+ 846              	.LBE9:
+ 390:Core/Src/tim.c ****     /**TIM8 GPIO Configuration
+ 847              		.loc 1 390 5 view .LVU282
+ 395:Core/Src/tim.c ****     GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+ 848              		.loc 1 395 5 view .LVU283
+ 395:Core/Src/tim.c ****     GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+ 849              		.loc 1 395 25 is_stmt 0 view .LVU284
+ 850 00f2 C023     		movs	r3, #192
+ 851 00f4 0893     		str	r3, [sp, #32]
+ 396:Core/Src/tim.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 852              		.loc 1 396 5 is_stmt 1 view .LVU285
+ 397:Core/Src/tim.c ****     HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+ 853              		.loc 1 397 5 view .LVU286
+ 398:Core/Src/tim.c **** 
+ 854              		.loc 1 398 5 view .LVU287
+ 855 00f6 08A9     		add	r1, sp, #32
+ 856 00f8 0848     		ldr	r0, .L51+28
+ 857              	.LVL36:
+ 398:Core/Src/tim.c **** 
+ 858              		.loc 1 398 5 is_stmt 0 view .LVU288
+ 859 00fa FFF7FEFF 		bl	HAL_GPIO_Init
+ 860              	.LVL37:
+ 861              		.loc 1 404 1 view .LVU289
+ 862 00fe 93E7     		b	.L41
+ 863              	.L52:
+ 864              		.align	2
+ 865              	.L51:
+ 866 0100 002C0140 		.word	1073818624
+ 867 0104 00040040 		.word	1073742848
+ 868 0108 00080040 		.word	1073743872
+ 869 010c 00340140 		.word	1073820672
+ 870 0110 00100240 		.word	1073876992
+ 871 0114 00080140 		.word	1073809408
+ 872 0118 000C0140 		.word	1073810432
+ 873 011c 00100140 		.word	1073811456
+ 874              		.cfi_endproc
+ 875              	.LFE71:
+ 877              		.section	.text.HAL_TIM_Base_MspInit,"ax",%progbits
+ 878              		.align	1
+ 879              		.global	HAL_TIM_Base_MspInit
+ 880              		.syntax unified
+ 881              		.thumb
+ 882              		.thumb_func
+ 883              		.fpu softvfp
+ 885              	HAL_TIM_Base_MspInit:
+ 886              	.LVL38:
+ 887              	.LFB72:
+ 405:Core/Src/tim.c **** 
+ 406:Core/Src/tim.c **** void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* tim_baseHandle)
+ 407:Core/Src/tim.c **** {
+ 888              		.loc 1 407 1 is_stmt 1 view -0
+ 889              		.cfi_startproc
+ 890              		@ args = 0, pretend = 0, frame = 8
+ 891              		@ frame_needed = 0, uses_anonymous_args = 0
+ 892              		.loc 1 407 1 is_stmt 0 view .LVU291
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 25
+
+
+ 893 0000 00B5     		push	{lr}
+ 894              	.LCFI24:
+ 895              		.cfi_def_cfa_offset 4
+ 896              		.cfi_offset 14, -4
+ 897 0002 83B0     		sub	sp, sp, #12
+ 898              	.LCFI25:
+ 899              		.cfi_def_cfa_offset 16
+ 408:Core/Src/tim.c **** 
+ 409:Core/Src/tim.c ****   if(tim_baseHandle->Instance==TIM2)
+ 900              		.loc 1 409 3 is_stmt 1 view .LVU292
+ 901              		.loc 1 409 20 is_stmt 0 view .LVU293
+ 902 0004 0368     		ldr	r3, [r0]
+ 903              		.loc 1 409 5 view .LVU294
+ 904 0006 B3F1804F 		cmp	r3, #1073741824
+ 905 000a 05D0     		beq	.L57
+ 410:Core/Src/tim.c ****   {
+ 411:Core/Src/tim.c ****   /* USER CODE BEGIN TIM2_MspInit 0 */
+ 412:Core/Src/tim.c **** 
+ 413:Core/Src/tim.c ****   /* USER CODE END TIM2_MspInit 0 */
+ 414:Core/Src/tim.c ****     /* TIM2 clock enable */
+ 415:Core/Src/tim.c ****     __HAL_RCC_TIM2_CLK_ENABLE();
+ 416:Core/Src/tim.c ****   /* USER CODE BEGIN TIM2_MspInit 1 */
+ 417:Core/Src/tim.c **** 
+ 418:Core/Src/tim.c ****   /* USER CODE END TIM2_MspInit 1 */
+ 419:Core/Src/tim.c ****   }
+ 420:Core/Src/tim.c ****   else if(tim_baseHandle->Instance==TIM6)
+ 906              		.loc 1 420 8 is_stmt 1 view .LVU295
+ 907              		.loc 1 420 10 is_stmt 0 view .LVU296
+ 908 000c 124A     		ldr	r2, .L59
+ 909 000e 9342     		cmp	r3, r2
+ 910 0010 0ED0     		beq	.L58
+ 911              	.LVL39:
+ 912              	.L53:
+ 421:Core/Src/tim.c ****   {
+ 422:Core/Src/tim.c ****   /* USER CODE BEGIN TIM6_MspInit 0 */
+ 423:Core/Src/tim.c **** 
+ 424:Core/Src/tim.c ****   /* USER CODE END TIM6_MspInit 0 */
+ 425:Core/Src/tim.c ****     /* TIM6 clock enable */
+ 426:Core/Src/tim.c ****     __HAL_RCC_TIM6_CLK_ENABLE();
+ 427:Core/Src/tim.c **** 
+ 428:Core/Src/tim.c ****     /* TIM6 interrupt Init */
+ 429:Core/Src/tim.c ****     HAL_NVIC_SetPriority(TIM6_IRQn, 0, 0);
+ 430:Core/Src/tim.c ****     HAL_NVIC_EnableIRQ(TIM6_IRQn);
+ 431:Core/Src/tim.c ****   /* USER CODE BEGIN TIM6_MspInit 1 */
+ 432:Core/Src/tim.c **** 
+ 433:Core/Src/tim.c ****   /* USER CODE END TIM6_MspInit 1 */
+ 434:Core/Src/tim.c ****   }
+ 435:Core/Src/tim.c **** }
+ 913              		.loc 1 435 1 view .LVU297
+ 914 0012 03B0     		add	sp, sp, #12
+ 915              	.LCFI26:
+ 916              		.cfi_remember_state
+ 917              		.cfi_def_cfa_offset 4
+ 918              		@ sp needed
+ 919 0014 5DF804FB 		ldr	pc, [sp], #4
+ 920              	.LVL40:
+ 921              	.L57:
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 26
+
+
+ 922              	.LCFI27:
+ 923              		.cfi_restore_state
+ 415:Core/Src/tim.c ****   /* USER CODE BEGIN TIM2_MspInit 1 */
+ 924              		.loc 1 415 5 is_stmt 1 view .LVU298
+ 925              	.LBB10:
+ 415:Core/Src/tim.c ****   /* USER CODE BEGIN TIM2_MspInit 1 */
+ 926              		.loc 1 415 5 view .LVU299
+ 415:Core/Src/tim.c ****   /* USER CODE BEGIN TIM2_MspInit 1 */
+ 927              		.loc 1 415 5 view .LVU300
+ 928 0018 03F50433 		add	r3, r3, #135168
+ 929 001c DA69     		ldr	r2, [r3, #28]
+ 930 001e 42F00102 		orr	r2, r2, #1
+ 931 0022 DA61     		str	r2, [r3, #28]
+ 415:Core/Src/tim.c ****   /* USER CODE BEGIN TIM2_MspInit 1 */
+ 932              		.loc 1 415 5 view .LVU301
+ 933 0024 DB69     		ldr	r3, [r3, #28]
+ 934 0026 03F00103 		and	r3, r3, #1
+ 935 002a 0093     		str	r3, [sp]
+ 415:Core/Src/tim.c ****   /* USER CODE BEGIN TIM2_MspInit 1 */
+ 936              		.loc 1 415 5 view .LVU302
+ 937 002c 009B     		ldr	r3, [sp]
+ 938              	.LBE10:
+ 415:Core/Src/tim.c ****   /* USER CODE BEGIN TIM2_MspInit 1 */
+ 939              		.loc 1 415 5 view .LVU303
+ 940 002e F0E7     		b	.L53
+ 941              	.L58:
+ 426:Core/Src/tim.c **** 
+ 942              		.loc 1 426 5 view .LVU304
+ 943              	.LBB11:
+ 426:Core/Src/tim.c **** 
+ 944              		.loc 1 426 5 view .LVU305
+ 426:Core/Src/tim.c **** 
+ 945              		.loc 1 426 5 view .LVU306
+ 946 0030 0A4B     		ldr	r3, .L59+4
+ 947 0032 DA69     		ldr	r2, [r3, #28]
+ 948 0034 42F01002 		orr	r2, r2, #16
+ 949 0038 DA61     		str	r2, [r3, #28]
+ 426:Core/Src/tim.c **** 
+ 950              		.loc 1 426 5 view .LVU307
+ 951 003a DB69     		ldr	r3, [r3, #28]
+ 952 003c 03F01003 		and	r3, r3, #16
+ 953 0040 0193     		str	r3, [sp, #4]
+ 426:Core/Src/tim.c **** 
+ 954              		.loc 1 426 5 view .LVU308
+ 955 0042 019B     		ldr	r3, [sp, #4]
+ 956              	.LBE11:
+ 426:Core/Src/tim.c **** 
+ 957              		.loc 1 426 5 view .LVU309
+ 429:Core/Src/tim.c ****     HAL_NVIC_EnableIRQ(TIM6_IRQn);
+ 958              		.loc 1 429 5 view .LVU310
+ 959 0044 0022     		movs	r2, #0
+ 960 0046 1146     		mov	r1, r2
+ 961 0048 3620     		movs	r0, #54
+ 962              	.LVL41:
+ 429:Core/Src/tim.c ****     HAL_NVIC_EnableIRQ(TIM6_IRQn);
+ 963              		.loc 1 429 5 is_stmt 0 view .LVU311
+ 964 004a FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 27
+
+
+ 965              	.LVL42:
+ 430:Core/Src/tim.c ****   /* USER CODE BEGIN TIM6_MspInit 1 */
+ 966              		.loc 1 430 5 is_stmt 1 view .LVU312
+ 967 004e 3620     		movs	r0, #54
+ 968 0050 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 969              	.LVL43:
+ 970              		.loc 1 435 1 is_stmt 0 view .LVU313
+ 971 0054 DDE7     		b	.L53
+ 972              	.L60:
+ 973 0056 00BF     		.align	2
+ 974              	.L59:
+ 975 0058 00100040 		.word	1073745920
+ 976 005c 00100240 		.word	1073876992
+ 977              		.cfi_endproc
+ 978              	.LFE72:
+ 980              		.section	.text.HAL_TIM_MspPostInit,"ax",%progbits
+ 981              		.align	1
+ 982              		.global	HAL_TIM_MspPostInit
+ 983              		.syntax unified
+ 984              		.thumb
+ 985              		.thumb_func
+ 986              		.fpu softvfp
+ 988              	HAL_TIM_MspPostInit:
+ 989              	.LVL44:
+ 990              	.LFB73:
+ 436:Core/Src/tim.c **** void HAL_TIM_MspPostInit(TIM_HandleTypeDef* timHandle)
+ 437:Core/Src/tim.c **** {
+ 991              		.loc 1 437 1 is_stmt 1 view -0
+ 992              		.cfi_startproc
+ 993              		@ args = 0, pretend = 0, frame = 24
+ 994              		@ frame_needed = 0, uses_anonymous_args = 0
+ 995              		.loc 1 437 1 is_stmt 0 view .LVU315
+ 996 0000 10B5     		push	{r4, lr}
+ 997              	.LCFI28:
+ 998              		.cfi_def_cfa_offset 8
+ 999              		.cfi_offset 4, -8
+ 1000              		.cfi_offset 14, -4
+ 1001 0002 86B0     		sub	sp, sp, #24
+ 1002              	.LCFI29:
+ 1003              		.cfi_def_cfa_offset 32
+ 438:Core/Src/tim.c **** 
+ 439:Core/Src/tim.c ****   GPIO_InitTypeDef GPIO_InitStruct = {0};
+ 1004              		.loc 1 439 3 is_stmt 1 view .LVU316
+ 1005              		.loc 1 439 20 is_stmt 0 view .LVU317
+ 1006 0004 0023     		movs	r3, #0
+ 1007 0006 0293     		str	r3, [sp, #8]
+ 1008 0008 0393     		str	r3, [sp, #12]
+ 1009 000a 0493     		str	r3, [sp, #16]
+ 1010 000c 0593     		str	r3, [sp, #20]
+ 440:Core/Src/tim.c ****   if(timHandle->Instance==TIM2)
+ 1011              		.loc 1 440 3 is_stmt 1 view .LVU318
+ 1012              		.loc 1 440 15 is_stmt 0 view .LVU319
+ 1013 000e 0368     		ldr	r3, [r0]
+ 1014              		.loc 1 440 5 view .LVU320
+ 1015 0010 B3F1804F 		cmp	r3, #1073741824
+ 1016 0014 01D0     		beq	.L64
+ 1017              	.LVL45:
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 28
+
+
+ 1018              	.L61:
+ 441:Core/Src/tim.c ****   {
+ 442:Core/Src/tim.c ****   /* USER CODE BEGIN TIM2_MspPostInit 0 */
+ 443:Core/Src/tim.c **** 
+ 444:Core/Src/tim.c ****   /* USER CODE END TIM2_MspPostInit 0 */
+ 445:Core/Src/tim.c **** 
+ 446:Core/Src/tim.c ****     __HAL_RCC_GPIOA_CLK_ENABLE();
+ 447:Core/Src/tim.c ****     __HAL_RCC_GPIOB_CLK_ENABLE();
+ 448:Core/Src/tim.c ****     /**TIM2 GPIO Configuration
+ 449:Core/Src/tim.c ****     PA0-WKUP     ------> TIM2_CH1
+ 450:Core/Src/tim.c ****     PA1     ------> TIM2_CH2
+ 451:Core/Src/tim.c ****     PB10     ------> TIM2_CH3
+ 452:Core/Src/tim.c ****     PB11     ------> TIM2_CH4
+ 453:Core/Src/tim.c ****     */
+ 454:Core/Src/tim.c ****     GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1;
+ 455:Core/Src/tim.c ****     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+ 456:Core/Src/tim.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 457:Core/Src/tim.c ****     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+ 458:Core/Src/tim.c **** 
+ 459:Core/Src/tim.c ****     GPIO_InitStruct.Pin = GPIO_PIN_10|GPIO_PIN_11;
+ 460:Core/Src/tim.c ****     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+ 461:Core/Src/tim.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 462:Core/Src/tim.c ****     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+ 463:Core/Src/tim.c **** 
+ 464:Core/Src/tim.c ****     __HAL_AFIO_REMAP_TIM2_PARTIAL_2();
+ 465:Core/Src/tim.c **** 
+ 466:Core/Src/tim.c ****   /* USER CODE BEGIN TIM2_MspPostInit 1 */
+ 467:Core/Src/tim.c **** 
+ 468:Core/Src/tim.c ****   /* USER CODE END TIM2_MspPostInit 1 */
+ 469:Core/Src/tim.c ****   }
+ 470:Core/Src/tim.c **** 
+ 471:Core/Src/tim.c **** }
+ 1019              		.loc 1 471 1 view .LVU321
+ 1020 0016 06B0     		add	sp, sp, #24
+ 1021              	.LCFI30:
+ 1022              		.cfi_remember_state
+ 1023              		.cfi_def_cfa_offset 8
+ 1024              		@ sp needed
+ 1025 0018 10BD     		pop	{r4, pc}
+ 1026              	.LVL46:
+ 1027              	.L64:
+ 1028              	.LCFI31:
+ 1029              		.cfi_restore_state
+ 446:Core/Src/tim.c ****     __HAL_RCC_GPIOB_CLK_ENABLE();
+ 1030              		.loc 1 446 5 is_stmt 1 view .LVU322
+ 1031              	.LBB12:
+ 446:Core/Src/tim.c ****     __HAL_RCC_GPIOB_CLK_ENABLE();
+ 1032              		.loc 1 446 5 view .LVU323
+ 446:Core/Src/tim.c ****     __HAL_RCC_GPIOB_CLK_ENABLE();
+ 1033              		.loc 1 446 5 view .LVU324
+ 1034 001a 03F50433 		add	r3, r3, #135168
+ 1035 001e 9A69     		ldr	r2, [r3, #24]
+ 1036 0020 42F00402 		orr	r2, r2, #4
+ 1037 0024 9A61     		str	r2, [r3, #24]
+ 446:Core/Src/tim.c ****     __HAL_RCC_GPIOB_CLK_ENABLE();
+ 1038              		.loc 1 446 5 view .LVU325
+ 1039 0026 9A69     		ldr	r2, [r3, #24]
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 29
+
+
+ 1040 0028 02F00402 		and	r2, r2, #4
+ 1041 002c 0092     		str	r2, [sp]
+ 446:Core/Src/tim.c ****     __HAL_RCC_GPIOB_CLK_ENABLE();
+ 1042              		.loc 1 446 5 view .LVU326
+ 1043 002e 009A     		ldr	r2, [sp]
+ 1044              	.LBE12:
+ 446:Core/Src/tim.c ****     __HAL_RCC_GPIOB_CLK_ENABLE();
+ 1045              		.loc 1 446 5 view .LVU327
+ 447:Core/Src/tim.c ****     /**TIM2 GPIO Configuration
+ 1046              		.loc 1 447 5 view .LVU328
+ 1047              	.LBB13:
+ 447:Core/Src/tim.c ****     /**TIM2 GPIO Configuration
+ 1048              		.loc 1 447 5 view .LVU329
+ 447:Core/Src/tim.c ****     /**TIM2 GPIO Configuration
+ 1049              		.loc 1 447 5 view .LVU330
+ 1050 0030 9A69     		ldr	r2, [r3, #24]
+ 1051 0032 42F00802 		orr	r2, r2, #8
+ 1052 0036 9A61     		str	r2, [r3, #24]
+ 447:Core/Src/tim.c ****     /**TIM2 GPIO Configuration
+ 1053              		.loc 1 447 5 view .LVU331
+ 1054 0038 9B69     		ldr	r3, [r3, #24]
+ 1055 003a 03F00803 		and	r3, r3, #8
+ 1056 003e 0193     		str	r3, [sp, #4]
+ 447:Core/Src/tim.c ****     /**TIM2 GPIO Configuration
+ 1057              		.loc 1 447 5 view .LVU332
+ 1058 0040 019B     		ldr	r3, [sp, #4]
+ 1059              	.LBE13:
+ 447:Core/Src/tim.c ****     /**TIM2 GPIO Configuration
+ 1060              		.loc 1 447 5 view .LVU333
+ 454:Core/Src/tim.c ****     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+ 1061              		.loc 1 454 5 view .LVU334
+ 454:Core/Src/tim.c ****     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+ 1062              		.loc 1 454 25 is_stmt 0 view .LVU335
+ 1063 0042 0323     		movs	r3, #3
+ 1064 0044 0293     		str	r3, [sp, #8]
+ 455:Core/Src/tim.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 1065              		.loc 1 455 5 is_stmt 1 view .LVU336
+ 455:Core/Src/tim.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 1066              		.loc 1 455 26 is_stmt 0 view .LVU337
+ 1067 0046 0224     		movs	r4, #2
+ 1068 0048 0394     		str	r4, [sp, #12]
+ 456:Core/Src/tim.c ****     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+ 1069              		.loc 1 456 5 is_stmt 1 view .LVU338
+ 456:Core/Src/tim.c ****     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+ 1070              		.loc 1 456 27 is_stmt 0 view .LVU339
+ 1071 004a 0594     		str	r4, [sp, #20]
+ 457:Core/Src/tim.c **** 
+ 1072              		.loc 1 457 5 is_stmt 1 view .LVU340
+ 1073 004c 02A9     		add	r1, sp, #8
+ 1074 004e 0B48     		ldr	r0, .L65
+ 1075              	.LVL47:
+ 457:Core/Src/tim.c **** 
+ 1076              		.loc 1 457 5 is_stmt 0 view .LVU341
+ 1077 0050 FFF7FEFF 		bl	HAL_GPIO_Init
+ 1078              	.LVL48:
+ 459:Core/Src/tim.c ****     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+ 1079              		.loc 1 459 5 is_stmt 1 view .LVU342
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 30
+
+
+ 459:Core/Src/tim.c ****     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+ 1080              		.loc 1 459 25 is_stmt 0 view .LVU343
+ 1081 0054 4FF44063 		mov	r3, #3072
+ 1082 0058 0293     		str	r3, [sp, #8]
+ 460:Core/Src/tim.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 1083              		.loc 1 460 5 is_stmt 1 view .LVU344
+ 460:Core/Src/tim.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 1084              		.loc 1 460 26 is_stmt 0 view .LVU345
+ 1085 005a 0394     		str	r4, [sp, #12]
+ 461:Core/Src/tim.c ****     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+ 1086              		.loc 1 461 5 is_stmt 1 view .LVU346
+ 461:Core/Src/tim.c ****     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+ 1087              		.loc 1 461 27 is_stmt 0 view .LVU347
+ 1088 005c 0594     		str	r4, [sp, #20]
+ 462:Core/Src/tim.c **** 
+ 1089              		.loc 1 462 5 is_stmt 1 view .LVU348
+ 1090 005e 02A9     		add	r1, sp, #8
+ 1091 0060 0748     		ldr	r0, .L65+4
+ 1092 0062 FFF7FEFF 		bl	HAL_GPIO_Init
+ 1093              	.LVL49:
+ 464:Core/Src/tim.c **** 
+ 1094              		.loc 1 464 5 view .LVU349
+ 1095              	.LBB14:
+ 464:Core/Src/tim.c **** 
+ 1096              		.loc 1 464 5 view .LVU350
+ 1097 0066 074A     		ldr	r2, .L65+8
+ 1098 0068 5368     		ldr	r3, [r2, #4]
+ 1099              	.LVL50:
+ 464:Core/Src/tim.c **** 
+ 1100              		.loc 1 464 5 view .LVU351
+ 1101 006a 23F44073 		bic	r3, r3, #768
+ 1102              	.LVL51:
+ 464:Core/Src/tim.c **** 
+ 1103              		.loc 1 464 5 view .LVU352
+ 464:Core/Src/tim.c **** 
+ 1104              		.loc 1 464 5 view .LVU353
+ 1105 006e 43F0E063 		orr	r3, r3, #117440512
+ 1106              	.LVL52:
+ 464:Core/Src/tim.c **** 
+ 1107              		.loc 1 464 5 is_stmt 0 view .LVU354
+ 1108 0072 43F40073 		orr	r3, r3, #512
+ 1109              	.LVL53:
+ 464:Core/Src/tim.c **** 
+ 1110              		.loc 1 464 5 is_stmt 1 view .LVU355
+ 1111 0076 5360     		str	r3, [r2, #4]
+ 1112              	.LBE14:
+ 464:Core/Src/tim.c **** 
+ 1113              		.loc 1 464 5 view .LVU356
+ 1114              		.loc 1 471 1 is_stmt 0 view .LVU357
+ 1115 0078 CDE7     		b	.L61
+ 1116              	.L66:
+ 1117 007a 00BF     		.align	2
+ 1118              	.L65:
+ 1119 007c 00080140 		.word	1073809408
+ 1120 0080 000C0140 		.word	1073810432
+ 1121 0084 00000140 		.word	1073807360
+ 1122              		.cfi_endproc
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 31
+
+
+ 1123              	.LFE73:
+ 1125              		.section	.text.MX_TIM2_Init,"ax",%progbits
+ 1126              		.align	1
+ 1127              		.global	MX_TIM2_Init
+ 1128              		.syntax unified
+ 1129              		.thumb
+ 1130              		.thumb_func
+ 1131              		.fpu softvfp
+ 1133              	MX_TIM2_Init:
+ 1134              	.LFB66:
+  81:Core/Src/tim.c **** 
+ 1135              		.loc 1 81 1 is_stmt 1 view -0
+ 1136              		.cfi_startproc
+ 1137              		@ args = 0, pretend = 0, frame = 56
+ 1138              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1139 0000 00B5     		push	{lr}
+ 1140              	.LCFI32:
+ 1141              		.cfi_def_cfa_offset 4
+ 1142              		.cfi_offset 14, -4
+ 1143 0002 8FB0     		sub	sp, sp, #60
+ 1144              	.LCFI33:
+ 1145              		.cfi_def_cfa_offset 64
+  87:Core/Src/tim.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
+ 1146              		.loc 1 87 3 view .LVU359
+  87:Core/Src/tim.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
+ 1147              		.loc 1 87 26 is_stmt 0 view .LVU360
+ 1148 0004 0023     		movs	r3, #0
+ 1149 0006 0A93     		str	r3, [sp, #40]
+ 1150 0008 0B93     		str	r3, [sp, #44]
+ 1151 000a 0C93     		str	r3, [sp, #48]
+ 1152 000c 0D93     		str	r3, [sp, #52]
+  88:Core/Src/tim.c ****   TIM_OC_InitTypeDef sConfigOC = {0};
+ 1153              		.loc 1 88 3 is_stmt 1 view .LVU361
+  88:Core/Src/tim.c ****   TIM_OC_InitTypeDef sConfigOC = {0};
+ 1154              		.loc 1 88 27 is_stmt 0 view .LVU362
+ 1155 000e 0893     		str	r3, [sp, #32]
+ 1156 0010 0993     		str	r3, [sp, #36]
+  89:Core/Src/tim.c **** 
+ 1157              		.loc 1 89 3 is_stmt 1 view .LVU363
+  89:Core/Src/tim.c **** 
+ 1158              		.loc 1 89 22 is_stmt 0 view .LVU364
+ 1159 0012 0193     		str	r3, [sp, #4]
+ 1160 0014 0293     		str	r3, [sp, #8]
+ 1161 0016 0393     		str	r3, [sp, #12]
+ 1162 0018 0493     		str	r3, [sp, #16]
+ 1163 001a 0593     		str	r3, [sp, #20]
+ 1164 001c 0693     		str	r3, [sp, #24]
+ 1165 001e 0793     		str	r3, [sp, #28]
+  94:Core/Src/tim.c ****   htim2.Init.Prescaler = 72-1;
+ 1166              		.loc 1 94 3 is_stmt 1 view .LVU365
+  94:Core/Src/tim.c ****   htim2.Init.Prescaler = 72-1;
+ 1167              		.loc 1 94 18 is_stmt 0 view .LVU366
+ 1168 0020 3048     		ldr	r0, .L85
+ 1169 0022 4FF08042 		mov	r2, #1073741824
+ 1170 0026 0260     		str	r2, [r0]
+  95:Core/Src/tim.c ****   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 1171              		.loc 1 95 3 is_stmt 1 view .LVU367
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 32
+
+
+  95:Core/Src/tim.c ****   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 1172              		.loc 1 95 24 is_stmt 0 view .LVU368
+ 1173 0028 4722     		movs	r2, #71
+ 1174 002a 4260     		str	r2, [r0, #4]
+  96:Core/Src/tim.c ****   htim2.Init.Period = 1000-1;
+ 1175              		.loc 1 96 3 is_stmt 1 view .LVU369
+  96:Core/Src/tim.c ****   htim2.Init.Period = 1000-1;
+ 1176              		.loc 1 96 26 is_stmt 0 view .LVU370
+ 1177 002c 8360     		str	r3, [r0, #8]
+  97:Core/Src/tim.c ****   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+ 1178              		.loc 1 97 3 is_stmt 1 view .LVU371
+  97:Core/Src/tim.c ****   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+ 1179              		.loc 1 97 21 is_stmt 0 view .LVU372
+ 1180 002e 40F2E732 		movw	r2, #999
+ 1181 0032 C260     		str	r2, [r0, #12]
+  98:Core/Src/tim.c ****   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+ 1182              		.loc 1 98 3 is_stmt 1 view .LVU373
+  98:Core/Src/tim.c ****   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+ 1183              		.loc 1 98 28 is_stmt 0 view .LVU374
+ 1184 0034 0361     		str	r3, [r0, #16]
+  99:Core/Src/tim.c ****   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
+ 1185              		.loc 1 99 3 is_stmt 1 view .LVU375
+  99:Core/Src/tim.c ****   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
+ 1186              		.loc 1 99 32 is_stmt 0 view .LVU376
+ 1187 0036 8361     		str	r3, [r0, #24]
+ 100:Core/Src/tim.c ****   {
+ 1188              		.loc 1 100 3 is_stmt 1 view .LVU377
+ 100:Core/Src/tim.c ****   {
+ 1189              		.loc 1 100 7 is_stmt 0 view .LVU378
+ 1190 0038 FFF7FEFF 		bl	HAL_TIM_Base_Init
+ 1191              	.LVL54:
+ 100:Core/Src/tim.c ****   {
+ 1192              		.loc 1 100 6 view .LVU379
+ 1193 003c 0028     		cmp	r0, #0
+ 1194 003e 39D1     		bne	.L77
+ 1195              	.L68:
+ 104:Core/Src/tim.c ****   if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
+ 1196              		.loc 1 104 3 is_stmt 1 view .LVU380
+ 104:Core/Src/tim.c ****   if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
+ 1197              		.loc 1 104 34 is_stmt 0 view .LVU381
+ 1198 0040 4FF48053 		mov	r3, #4096
+ 1199 0044 0A93     		str	r3, [sp, #40]
+ 105:Core/Src/tim.c ****   {
+ 1200              		.loc 1 105 3 is_stmt 1 view .LVU382
+ 105:Core/Src/tim.c ****   {
+ 1201              		.loc 1 105 7 is_stmt 0 view .LVU383
+ 1202 0046 0AA9     		add	r1, sp, #40
+ 1203 0048 2648     		ldr	r0, .L85
+ 1204 004a FFF7FEFF 		bl	HAL_TIM_ConfigClockSource
+ 1205              	.LVL55:
+ 105:Core/Src/tim.c ****   {
+ 1206              		.loc 1 105 6 view .LVU384
+ 1207 004e 0028     		cmp	r0, #0
+ 1208 0050 33D1     		bne	.L78
+ 1209              	.L69:
+ 109:Core/Src/tim.c ****   {
+ 1210              		.loc 1 109 3 is_stmt 1 view .LVU385
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 33
+
+
+ 109:Core/Src/tim.c ****   {
+ 1211              		.loc 1 109 7 is_stmt 0 view .LVU386
+ 1212 0052 2448     		ldr	r0, .L85
+ 1213 0054 FFF7FEFF 		bl	HAL_TIM_PWM_Init
+ 1214              	.LVL56:
+ 109:Core/Src/tim.c ****   {
+ 1215              		.loc 1 109 6 view .LVU387
+ 1216 0058 0028     		cmp	r0, #0
+ 1217 005a 31D1     		bne	.L79
+ 1218              	.L70:
+ 113:Core/Src/tim.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+ 1219              		.loc 1 113 3 is_stmt 1 view .LVU388
+ 113:Core/Src/tim.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+ 1220              		.loc 1 113 37 is_stmt 0 view .LVU389
+ 1221 005c 0023     		movs	r3, #0
+ 1222 005e 0893     		str	r3, [sp, #32]
+ 114:Core/Src/tim.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+ 1223              		.loc 1 114 3 is_stmt 1 view .LVU390
+ 114:Core/Src/tim.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+ 1224              		.loc 1 114 33 is_stmt 0 view .LVU391
+ 1225 0060 0993     		str	r3, [sp, #36]
+ 115:Core/Src/tim.c ****   {
+ 1226              		.loc 1 115 3 is_stmt 1 view .LVU392
+ 115:Core/Src/tim.c ****   {
+ 1227              		.loc 1 115 7 is_stmt 0 view .LVU393
+ 1228 0062 08A9     		add	r1, sp, #32
+ 1229 0064 1F48     		ldr	r0, .L85
+ 1230 0066 FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
+ 1231              	.LVL57:
+ 115:Core/Src/tim.c ****   {
+ 1232              		.loc 1 115 6 view .LVU394
+ 1233 006a 60BB     		cbnz	r0, .L80
+ 1234              	.L71:
+ 119:Core/Src/tim.c ****   sConfigOC.Pulse = 0;
+ 1235              		.loc 1 119 3 is_stmt 1 view .LVU395
+ 119:Core/Src/tim.c ****   sConfigOC.Pulse = 0;
+ 1236              		.loc 1 119 20 is_stmt 0 view .LVU396
+ 1237 006c 6023     		movs	r3, #96
+ 1238 006e 0193     		str	r3, [sp, #4]
+ 120:Core/Src/tim.c ****   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+ 1239              		.loc 1 120 3 is_stmt 1 view .LVU397
+ 120:Core/Src/tim.c ****   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+ 1240              		.loc 1 120 19 is_stmt 0 view .LVU398
+ 1241 0070 0022     		movs	r2, #0
+ 1242 0072 0292     		str	r2, [sp, #8]
+ 121:Core/Src/tim.c ****   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+ 1243              		.loc 1 121 3 is_stmt 1 view .LVU399
+ 121:Core/Src/tim.c ****   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+ 1244              		.loc 1 121 24 is_stmt 0 view .LVU400
+ 1245 0074 0392     		str	r2, [sp, #12]
+ 122:Core/Src/tim.c ****   if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+ 1246              		.loc 1 122 3 is_stmt 1 view .LVU401
+ 122:Core/Src/tim.c ****   if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+ 1247              		.loc 1 122 24 is_stmt 0 view .LVU402
+ 1248 0076 0592     		str	r2, [sp, #20]
+ 123:Core/Src/tim.c ****   {
+ 1249              		.loc 1 123 3 is_stmt 1 view .LVU403
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 34
+
+
+ 123:Core/Src/tim.c ****   {
+ 1250              		.loc 1 123 7 is_stmt 0 view .LVU404
+ 1251 0078 01A9     		add	r1, sp, #4
+ 1252 007a 1A48     		ldr	r0, .L85
+ 1253 007c FFF7FEFF 		bl	HAL_TIM_PWM_ConfigChannel
+ 1254              	.LVL58:
+ 123:Core/Src/tim.c ****   {
+ 1255              		.loc 1 123 6 view .LVU405
+ 1256 0080 20BB     		cbnz	r0, .L81
+ 1257              	.L72:
+ 127:Core/Src/tim.c ****   {
+ 1258              		.loc 1 127 3 is_stmt 1 view .LVU406
+ 127:Core/Src/tim.c ****   {
+ 1259              		.loc 1 127 7 is_stmt 0 view .LVU407
+ 1260 0082 0422     		movs	r2, #4
+ 1261 0084 0DEB0201 		add	r1, sp, r2
+ 1262 0088 1648     		ldr	r0, .L85
+ 1263 008a FFF7FEFF 		bl	HAL_TIM_PWM_ConfigChannel
+ 1264              	.LVL59:
+ 127:Core/Src/tim.c ****   {
+ 1265              		.loc 1 127 6 view .LVU408
+ 1266 008e 00BB     		cbnz	r0, .L82
+ 1267              	.L73:
+ 131:Core/Src/tim.c ****   {
+ 1268              		.loc 1 131 3 is_stmt 1 view .LVU409
+ 131:Core/Src/tim.c ****   {
+ 1269              		.loc 1 131 7 is_stmt 0 view .LVU410
+ 1270 0090 0822     		movs	r2, #8
+ 1271 0092 01A9     		add	r1, sp, #4
+ 1272 0094 1348     		ldr	r0, .L85
+ 1273 0096 FFF7FEFF 		bl	HAL_TIM_PWM_ConfigChannel
+ 1274              	.LVL60:
+ 131:Core/Src/tim.c ****   {
+ 1275              		.loc 1 131 6 view .LVU411
+ 1276 009a E8B9     		cbnz	r0, .L83
+ 1277              	.L74:
+ 135:Core/Src/tim.c ****   {
+ 1278              		.loc 1 135 3 is_stmt 1 view .LVU412
+ 135:Core/Src/tim.c ****   {
+ 1279              		.loc 1 135 7 is_stmt 0 view .LVU413
+ 1280 009c 0C22     		movs	r2, #12
+ 1281 009e 01A9     		add	r1, sp, #4
+ 1282 00a0 1048     		ldr	r0, .L85
+ 1283 00a2 FFF7FEFF 		bl	HAL_TIM_PWM_ConfigChannel
+ 1284              	.LVL61:
+ 135:Core/Src/tim.c ****   {
+ 1285              		.loc 1 135 6 view .LVU414
+ 1286 00a6 D0B9     		cbnz	r0, .L84
+ 1287              	.L75:
+ 142:Core/Src/tim.c **** 
+ 1288              		.loc 1 142 3 is_stmt 1 view .LVU415
+ 1289 00a8 0E48     		ldr	r0, .L85
+ 1290 00aa FFF7FEFF 		bl	HAL_TIM_MspPostInit
+ 1291              	.LVL62:
+ 144:Core/Src/tim.c **** /* TIM3 init function */
+ 1292              		.loc 1 144 1 is_stmt 0 view .LVU416
+ 1293 00ae 0FB0     		add	sp, sp, #60
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 35
+
+
+ 1294              	.LCFI34:
+ 1295              		.cfi_remember_state
+ 1296              		.cfi_def_cfa_offset 4
+ 1297              		@ sp needed
+ 1298 00b0 5DF804FB 		ldr	pc, [sp], #4
+ 1299              	.L77:
+ 1300              	.LCFI35:
+ 1301              		.cfi_restore_state
+ 102:Core/Src/tim.c ****   }
+ 1302              		.loc 1 102 5 is_stmt 1 view .LVU417
+ 1303 00b4 FFF7FEFF 		bl	Error_Handler
+ 1304              	.LVL63:
+ 1305 00b8 C2E7     		b	.L68
+ 1306              	.L78:
+ 107:Core/Src/tim.c ****   }
+ 1307              		.loc 1 107 5 view .LVU418
+ 1308 00ba FFF7FEFF 		bl	Error_Handler
+ 1309              	.LVL64:
+ 1310 00be C8E7     		b	.L69
+ 1311              	.L79:
+ 111:Core/Src/tim.c ****   }
+ 1312              		.loc 1 111 5 view .LVU419
+ 1313 00c0 FFF7FEFF 		bl	Error_Handler
+ 1314              	.LVL65:
+ 1315 00c4 CAE7     		b	.L70
+ 1316              	.L80:
+ 117:Core/Src/tim.c ****   }
+ 1317              		.loc 1 117 5 view .LVU420
+ 1318 00c6 FFF7FEFF 		bl	Error_Handler
+ 1319              	.LVL66:
+ 1320 00ca CFE7     		b	.L71
+ 1321              	.L81:
+ 125:Core/Src/tim.c ****   }
+ 1322              		.loc 1 125 5 view .LVU421
+ 1323 00cc FFF7FEFF 		bl	Error_Handler
+ 1324              	.LVL67:
+ 1325 00d0 D7E7     		b	.L72
+ 1326              	.L82:
+ 129:Core/Src/tim.c ****   }
+ 1327              		.loc 1 129 5 view .LVU422
+ 1328 00d2 FFF7FEFF 		bl	Error_Handler
+ 1329              	.LVL68:
+ 1330 00d6 DBE7     		b	.L73
+ 1331              	.L83:
+ 133:Core/Src/tim.c ****   }
+ 1332              		.loc 1 133 5 view .LVU423
+ 1333 00d8 FFF7FEFF 		bl	Error_Handler
+ 1334              	.LVL69:
+ 1335 00dc DEE7     		b	.L74
+ 1336              	.L84:
+ 137:Core/Src/tim.c ****   }
+ 1337              		.loc 1 137 5 view .LVU424
+ 1338 00de FFF7FEFF 		bl	Error_Handler
+ 1339              	.LVL70:
+ 1340 00e2 E1E7     		b	.L75
+ 1341              	.L86:
+ 1342              		.align	2
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 36
+
+
+ 1343              	.L85:
+ 1344 00e4 00000000 		.word	.LANCHOR5
+ 1345              		.cfi_endproc
+ 1346              	.LFE66:
+ 1348              		.section	.text.HAL_TIM_Encoder_MspDeInit,"ax",%progbits
+ 1349              		.align	1
+ 1350              		.global	HAL_TIM_Encoder_MspDeInit
+ 1351              		.syntax unified
+ 1352              		.thumb
+ 1353              		.thumb_func
+ 1354              		.fpu softvfp
+ 1356              	HAL_TIM_Encoder_MspDeInit:
+ 1357              	.LVL71:
+ 1358              	.LFB74:
+ 472:Core/Src/tim.c **** 
+ 473:Core/Src/tim.c **** void HAL_TIM_Encoder_MspDeInit(TIM_HandleTypeDef* tim_encoderHandle)
+ 474:Core/Src/tim.c **** {
+ 1359              		.loc 1 474 1 view -0
+ 1360              		.cfi_startproc
+ 1361              		@ args = 0, pretend = 0, frame = 0
+ 1362              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1363              		.loc 1 474 1 is_stmt 0 view .LVU426
+ 1364 0000 08B5     		push	{r3, lr}
+ 1365              	.LCFI36:
+ 1366              		.cfi_def_cfa_offset 8
+ 1367              		.cfi_offset 3, -8
+ 1368              		.cfi_offset 14, -4
+ 475:Core/Src/tim.c **** 
+ 476:Core/Src/tim.c ****   if(tim_encoderHandle->Instance==TIM1)
+ 1369              		.loc 1 476 3 is_stmt 1 view .LVU427
+ 1370              		.loc 1 476 23 is_stmt 0 view .LVU428
+ 1371 0002 0368     		ldr	r3, [r0]
+ 1372              		.loc 1 476 5 view .LVU429
+ 1373 0004 1C4A     		ldr	r2, .L97
+ 1374 0006 9342     		cmp	r3, r2
+ 1375 0008 09D0     		beq	.L93
+ 477:Core/Src/tim.c ****   {
+ 478:Core/Src/tim.c ****   /* USER CODE BEGIN TIM1_MspDeInit 0 */
+ 479:Core/Src/tim.c **** 
+ 480:Core/Src/tim.c ****   /* USER CODE END TIM1_MspDeInit 0 */
+ 481:Core/Src/tim.c ****     /* Peripheral clock disable */
+ 482:Core/Src/tim.c ****     __HAL_RCC_TIM1_CLK_DISABLE();
+ 483:Core/Src/tim.c **** 
+ 484:Core/Src/tim.c ****     /**TIM1 GPIO Configuration
+ 485:Core/Src/tim.c ****     PA8     ------> TIM1_CH1
+ 486:Core/Src/tim.c ****     PA9     ------> TIM1_CH2
+ 487:Core/Src/tim.c ****     */
+ 488:Core/Src/tim.c ****     HAL_GPIO_DeInit(GPIOA, GPIO_PIN_8|GPIO_PIN_9);
+ 489:Core/Src/tim.c **** 
+ 490:Core/Src/tim.c ****   /* USER CODE BEGIN TIM1_MspDeInit 1 */
+ 491:Core/Src/tim.c **** 
+ 492:Core/Src/tim.c ****   /* USER CODE END TIM1_MspDeInit 1 */
+ 493:Core/Src/tim.c ****   }
+ 494:Core/Src/tim.c ****   else if(tim_encoderHandle->Instance==TIM3)
+ 1376              		.loc 1 494 8 is_stmt 1 view .LVU430
+ 1377              		.loc 1 494 10 is_stmt 0 view .LVU431
+ 1378 000a 1C4A     		ldr	r2, .L97+4
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 37
+
+
+ 1379 000c 9342     		cmp	r3, r2
+ 1380 000e 12D0     		beq	.L94
+ 495:Core/Src/tim.c ****   {
+ 496:Core/Src/tim.c ****   /* USER CODE BEGIN TIM3_MspDeInit 0 */
+ 497:Core/Src/tim.c **** 
+ 498:Core/Src/tim.c ****   /* USER CODE END TIM3_MspDeInit 0 */
+ 499:Core/Src/tim.c ****     /* Peripheral clock disable */
+ 500:Core/Src/tim.c ****     __HAL_RCC_TIM3_CLK_DISABLE();
+ 501:Core/Src/tim.c **** 
+ 502:Core/Src/tim.c ****     /**TIM3 GPIO Configuration
+ 503:Core/Src/tim.c ****     PA6     ------> TIM3_CH1
+ 504:Core/Src/tim.c ****     PA7     ------> TIM3_CH2
+ 505:Core/Src/tim.c ****     */
+ 506:Core/Src/tim.c ****     HAL_GPIO_DeInit(GPIOA, GPIO_PIN_6|GPIO_PIN_7);
+ 507:Core/Src/tim.c **** 
+ 508:Core/Src/tim.c ****   /* USER CODE BEGIN TIM3_MspDeInit 1 */
+ 509:Core/Src/tim.c **** 
+ 510:Core/Src/tim.c ****   /* USER CODE END TIM3_MspDeInit 1 */
+ 511:Core/Src/tim.c ****   }
+ 512:Core/Src/tim.c ****   else if(tim_encoderHandle->Instance==TIM4)
+ 1381              		.loc 1 512 8 is_stmt 1 view .LVU432
+ 1382              		.loc 1 512 10 is_stmt 0 view .LVU433
+ 1383 0010 1B4A     		ldr	r2, .L97+8
+ 1384 0012 9342     		cmp	r3, r2
+ 1385 0014 1AD0     		beq	.L95
+ 513:Core/Src/tim.c ****   {
+ 514:Core/Src/tim.c ****   /* USER CODE BEGIN TIM4_MspDeInit 0 */
+ 515:Core/Src/tim.c **** 
+ 516:Core/Src/tim.c ****   /* USER CODE END TIM4_MspDeInit 0 */
+ 517:Core/Src/tim.c ****     /* Peripheral clock disable */
+ 518:Core/Src/tim.c ****     __HAL_RCC_TIM4_CLK_DISABLE();
+ 519:Core/Src/tim.c **** 
+ 520:Core/Src/tim.c ****     /**TIM4 GPIO Configuration
+ 521:Core/Src/tim.c ****     PB6     ------> TIM4_CH1
+ 522:Core/Src/tim.c ****     PB7     ------> TIM4_CH2
+ 523:Core/Src/tim.c ****     */
+ 524:Core/Src/tim.c ****     HAL_GPIO_DeInit(GPIOB, GPIO_PIN_6|GPIO_PIN_7);
+ 525:Core/Src/tim.c **** 
+ 526:Core/Src/tim.c ****   /* USER CODE BEGIN TIM4_MspDeInit 1 */
+ 527:Core/Src/tim.c **** 
+ 528:Core/Src/tim.c ****   /* USER CODE END TIM4_MspDeInit 1 */
+ 529:Core/Src/tim.c ****   }
+ 530:Core/Src/tim.c ****   else if(tim_encoderHandle->Instance==TIM8)
+ 1386              		.loc 1 530 8 is_stmt 1 view .LVU434
+ 1387              		.loc 1 530 10 is_stmt 0 view .LVU435
+ 1388 0016 1B4A     		ldr	r2, .L97+12
+ 1389 0018 9342     		cmp	r3, r2
+ 1390 001a 22D0     		beq	.L96
+ 1391              	.LVL72:
+ 1392              	.L87:
+ 531:Core/Src/tim.c ****   {
+ 532:Core/Src/tim.c ****   /* USER CODE BEGIN TIM8_MspDeInit 0 */
+ 533:Core/Src/tim.c **** 
+ 534:Core/Src/tim.c ****   /* USER CODE END TIM8_MspDeInit 0 */
+ 535:Core/Src/tim.c ****     /* Peripheral clock disable */
+ 536:Core/Src/tim.c ****     __HAL_RCC_TIM8_CLK_DISABLE();
+ 537:Core/Src/tim.c **** 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 38
+
+
+ 538:Core/Src/tim.c ****     /**TIM8 GPIO Configuration
+ 539:Core/Src/tim.c ****     PC6     ------> TIM8_CH1
+ 540:Core/Src/tim.c ****     PC7     ------> TIM8_CH2
+ 541:Core/Src/tim.c ****     */
+ 542:Core/Src/tim.c ****     HAL_GPIO_DeInit(GPIOC, GPIO_PIN_6|GPIO_PIN_7);
+ 543:Core/Src/tim.c **** 
+ 544:Core/Src/tim.c ****   /* USER CODE BEGIN TIM8_MspDeInit 1 */
+ 545:Core/Src/tim.c **** 
+ 546:Core/Src/tim.c ****   /* USER CODE END TIM8_MspDeInit 1 */
+ 547:Core/Src/tim.c ****   }
+ 548:Core/Src/tim.c **** }
+ 1393              		.loc 1 548 1 view .LVU436
+ 1394 001c 08BD     		pop	{r3, pc}
+ 1395              	.LVL73:
+ 1396              	.L93:
+ 482:Core/Src/tim.c **** 
+ 1397              		.loc 1 482 5 is_stmt 1 view .LVU437
+ 1398 001e 02F56442 		add	r2, r2, #58368
+ 1399 0022 9369     		ldr	r3, [r2, #24]
+ 1400 0024 23F40063 		bic	r3, r3, #2048
+ 1401 0028 9361     		str	r3, [r2, #24]
+ 488:Core/Src/tim.c **** 
+ 1402              		.loc 1 488 5 view .LVU438
+ 1403 002a 4FF44071 		mov	r1, #768
+ 1404 002e 1648     		ldr	r0, .L97+16
+ 1405              	.LVL74:
+ 488:Core/Src/tim.c **** 
+ 1406              		.loc 1 488 5 is_stmt 0 view .LVU439
+ 1407 0030 FFF7FEFF 		bl	HAL_GPIO_DeInit
+ 1408              	.LVL75:
+ 1409 0034 F2E7     		b	.L87
+ 1410              	.LVL76:
+ 1411              	.L94:
+ 500:Core/Src/tim.c **** 
+ 1412              		.loc 1 500 5 is_stmt 1 view .LVU440
+ 1413 0036 02F50332 		add	r2, r2, #134144
+ 1414 003a D369     		ldr	r3, [r2, #28]
+ 1415 003c 23F00203 		bic	r3, r3, #2
+ 1416 0040 D361     		str	r3, [r2, #28]
+ 506:Core/Src/tim.c **** 
+ 1417              		.loc 1 506 5 view .LVU441
+ 1418 0042 C021     		movs	r1, #192
+ 1419 0044 1048     		ldr	r0, .L97+16
+ 1420              	.LVL77:
+ 506:Core/Src/tim.c **** 
+ 1421              		.loc 1 506 5 is_stmt 0 view .LVU442
+ 1422 0046 FFF7FEFF 		bl	HAL_GPIO_DeInit
+ 1423              	.LVL78:
+ 1424 004a E7E7     		b	.L87
+ 1425              	.LVL79:
+ 1426              	.L95:
+ 518:Core/Src/tim.c **** 
+ 1427              		.loc 1 518 5 is_stmt 1 view .LVU443
+ 1428 004c 02F50232 		add	r2, r2, #133120
+ 1429 0050 D369     		ldr	r3, [r2, #28]
+ 1430 0052 23F00403 		bic	r3, r3, #4
+ 1431 0056 D361     		str	r3, [r2, #28]
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 39
+
+
+ 524:Core/Src/tim.c **** 
+ 1432              		.loc 1 524 5 view .LVU444
+ 1433 0058 C021     		movs	r1, #192
+ 1434 005a 0C48     		ldr	r0, .L97+20
+ 1435              	.LVL80:
+ 524:Core/Src/tim.c **** 
+ 1436              		.loc 1 524 5 is_stmt 0 view .LVU445
+ 1437 005c FFF7FEFF 		bl	HAL_GPIO_DeInit
+ 1438              	.LVL81:
+ 1439 0060 DCE7     		b	.L87
+ 1440              	.LVL82:
+ 1441              	.L96:
+ 536:Core/Src/tim.c **** 
+ 1442              		.loc 1 536 5 is_stmt 1 view .LVU446
+ 1443 0062 02F55C42 		add	r2, r2, #56320
+ 1444 0066 9369     		ldr	r3, [r2, #24]
+ 1445 0068 23F40053 		bic	r3, r3, #8192
+ 1446 006c 9361     		str	r3, [r2, #24]
+ 542:Core/Src/tim.c **** 
+ 1447              		.loc 1 542 5 view .LVU447
+ 1448 006e C021     		movs	r1, #192
+ 1449 0070 0748     		ldr	r0, .L97+24
+ 1450              	.LVL83:
+ 542:Core/Src/tim.c **** 
+ 1451              		.loc 1 542 5 is_stmt 0 view .LVU448
+ 1452 0072 FFF7FEFF 		bl	HAL_GPIO_DeInit
+ 1453              	.LVL84:
+ 1454              		.loc 1 548 1 view .LVU449
+ 1455 0076 D1E7     		b	.L87
+ 1456              	.L98:
+ 1457              		.align	2
+ 1458              	.L97:
+ 1459 0078 002C0140 		.word	1073818624
+ 1460 007c 00040040 		.word	1073742848
+ 1461 0080 00080040 		.word	1073743872
+ 1462 0084 00340140 		.word	1073820672
+ 1463 0088 00080140 		.word	1073809408
+ 1464 008c 000C0140 		.word	1073810432
+ 1465 0090 00100140 		.word	1073811456
+ 1466              		.cfi_endproc
+ 1467              	.LFE74:
+ 1469              		.section	.text.HAL_TIM_Base_MspDeInit,"ax",%progbits
+ 1470              		.align	1
+ 1471              		.global	HAL_TIM_Base_MspDeInit
+ 1472              		.syntax unified
+ 1473              		.thumb
+ 1474              		.thumb_func
+ 1475              		.fpu softvfp
+ 1477              	HAL_TIM_Base_MspDeInit:
+ 1478              	.LVL85:
+ 1479              	.LFB75:
+ 549:Core/Src/tim.c **** 
+ 550:Core/Src/tim.c **** void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* tim_baseHandle)
+ 551:Core/Src/tim.c **** {
+ 1480              		.loc 1 551 1 is_stmt 1 view -0
+ 1481              		.cfi_startproc
+ 1482              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 40
+
+
+ 1483              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1484              		.loc 1 551 1 is_stmt 0 view .LVU451
+ 1485 0000 08B5     		push	{r3, lr}
+ 1486              	.LCFI37:
+ 1487              		.cfi_def_cfa_offset 8
+ 1488              		.cfi_offset 3, -8
+ 1489              		.cfi_offset 14, -4
+ 552:Core/Src/tim.c **** 
+ 553:Core/Src/tim.c ****   if(tim_baseHandle->Instance==TIM2)
+ 1490              		.loc 1 553 3 is_stmt 1 view .LVU452
+ 1491              		.loc 1 553 20 is_stmt 0 view .LVU453
+ 1492 0002 0368     		ldr	r3, [r0]
+ 1493              		.loc 1 553 5 view .LVU454
+ 1494 0004 B3F1804F 		cmp	r3, #1073741824
+ 1495 0008 03D0     		beq	.L103
+ 554:Core/Src/tim.c ****   {
+ 555:Core/Src/tim.c ****   /* USER CODE BEGIN TIM2_MspDeInit 0 */
+ 556:Core/Src/tim.c **** 
+ 557:Core/Src/tim.c ****   /* USER CODE END TIM2_MspDeInit 0 */
+ 558:Core/Src/tim.c ****     /* Peripheral clock disable */
+ 559:Core/Src/tim.c ****     __HAL_RCC_TIM2_CLK_DISABLE();
+ 560:Core/Src/tim.c ****   /* USER CODE BEGIN TIM2_MspDeInit 1 */
+ 561:Core/Src/tim.c **** 
+ 562:Core/Src/tim.c ****   /* USER CODE END TIM2_MspDeInit 1 */
+ 563:Core/Src/tim.c ****   }
+ 564:Core/Src/tim.c ****   else if(tim_baseHandle->Instance==TIM6)
+ 1496              		.loc 1 564 8 is_stmt 1 view .LVU455
+ 1497              		.loc 1 564 10 is_stmt 0 view .LVU456
+ 1498 000a 0A4A     		ldr	r2, .L105
+ 1499 000c 9342     		cmp	r3, r2
+ 1500 000e 06D0     		beq	.L104
+ 1501              	.LVL86:
+ 1502              	.L99:
+ 565:Core/Src/tim.c ****   {
+ 566:Core/Src/tim.c ****   /* USER CODE BEGIN TIM6_MspDeInit 0 */
+ 567:Core/Src/tim.c **** 
+ 568:Core/Src/tim.c ****   /* USER CODE END TIM6_MspDeInit 0 */
+ 569:Core/Src/tim.c ****     /* Peripheral clock disable */
+ 570:Core/Src/tim.c ****     __HAL_RCC_TIM6_CLK_DISABLE();
+ 571:Core/Src/tim.c **** 
+ 572:Core/Src/tim.c ****     /* TIM6 interrupt Deinit */
+ 573:Core/Src/tim.c ****     HAL_NVIC_DisableIRQ(TIM6_IRQn);
+ 574:Core/Src/tim.c ****   /* USER CODE BEGIN TIM6_MspDeInit 1 */
+ 575:Core/Src/tim.c **** 
+ 576:Core/Src/tim.c ****   /* USER CODE END TIM6_MspDeInit 1 */
+ 577:Core/Src/tim.c ****   }
+ 578:Core/Src/tim.c **** }
+ 1503              		.loc 1 578 1 view .LVU457
+ 1504 0010 08BD     		pop	{r3, pc}
+ 1505              	.LVL87:
+ 1506              	.L103:
+ 559:Core/Src/tim.c ****   /* USER CODE BEGIN TIM2_MspDeInit 1 */
+ 1507              		.loc 1 559 5 is_stmt 1 view .LVU458
+ 1508 0012 094A     		ldr	r2, .L105+4
+ 1509 0014 D369     		ldr	r3, [r2, #28]
+ 1510 0016 23F00103 		bic	r3, r3, #1
+ 1511 001a D361     		str	r3, [r2, #28]
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 41
+
+
+ 1512 001c F8E7     		b	.L99
+ 1513              	.L104:
+ 570:Core/Src/tim.c **** 
+ 1514              		.loc 1 570 5 view .LVU459
+ 1515 001e 02F50032 		add	r2, r2, #131072
+ 1516 0022 D369     		ldr	r3, [r2, #28]
+ 1517 0024 23F01003 		bic	r3, r3, #16
+ 1518 0028 D361     		str	r3, [r2, #28]
+ 573:Core/Src/tim.c ****   /* USER CODE BEGIN TIM6_MspDeInit 1 */
+ 1519              		.loc 1 573 5 view .LVU460
+ 1520 002a 3620     		movs	r0, #54
+ 1521              	.LVL88:
+ 573:Core/Src/tim.c ****   /* USER CODE BEGIN TIM6_MspDeInit 1 */
+ 1522              		.loc 1 573 5 is_stmt 0 view .LVU461
+ 1523 002c FFF7FEFF 		bl	HAL_NVIC_DisableIRQ
+ 1524              	.LVL89:
+ 1525              		.loc 1 578 1 view .LVU462
+ 1526 0030 EEE7     		b	.L99
+ 1527              	.L106:
+ 1528 0032 00BF     		.align	2
+ 1529              	.L105:
+ 1530 0034 00100040 		.word	1073745920
+ 1531 0038 00100240 		.word	1073876992
+ 1532              		.cfi_endproc
+ 1533              	.LFE75:
+ 1535              		.global	htim8
+ 1536              		.global	htim6
+ 1537              		.global	htim4
+ 1538              		.global	htim3
+ 1539              		.global	htim2
+ 1540              		.global	htim1
+ 1541              		.section	.bss.htim1,"aw",%nobits
+ 1542              		.align	2
+ 1543              		.set	.LANCHOR0,. + 0
+ 1546              	htim1:
+ 1547 0000 00000000 		.space	72
+ 1547      00000000 
+ 1547      00000000 
+ 1547      00000000 
+ 1547      00000000 
+ 1548              		.section	.bss.htim2,"aw",%nobits
+ 1549              		.align	2
+ 1550              		.set	.LANCHOR5,. + 0
+ 1553              	htim2:
+ 1554 0000 00000000 		.space	72
+ 1554      00000000 
+ 1554      00000000 
+ 1554      00000000 
+ 1554      00000000 
+ 1555              		.section	.bss.htim3,"aw",%nobits
+ 1556              		.align	2
+ 1557              		.set	.LANCHOR1,. + 0
+ 1560              	htim3:
+ 1561 0000 00000000 		.space	72
+ 1561      00000000 
+ 1561      00000000 
+ 1561      00000000 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 42
+
+
+ 1561      00000000 
+ 1562              		.section	.bss.htim4,"aw",%nobits
+ 1563              		.align	2
+ 1564              		.set	.LANCHOR2,. + 0
+ 1567              	htim4:
+ 1568 0000 00000000 		.space	72
+ 1568      00000000 
+ 1568      00000000 
+ 1568      00000000 
+ 1568      00000000 
+ 1569              		.section	.bss.htim6,"aw",%nobits
+ 1570              		.align	2
+ 1571              		.set	.LANCHOR3,. + 0
+ 1574              	htim6:
+ 1575 0000 00000000 		.space	72
+ 1575      00000000 
+ 1575      00000000 
+ 1575      00000000 
+ 1575      00000000 
+ 1576              		.section	.bss.htim8,"aw",%nobits
+ 1577              		.align	2
+ 1578              		.set	.LANCHOR4,. + 0
+ 1581              	htim8:
+ 1582 0000 00000000 		.space	72
+ 1582      00000000 
+ 1582      00000000 
+ 1582      00000000 
+ 1582      00000000 
+ 1583              		.text
+ 1584              	.Letext0:
+ 1585              		.file 2 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.07\\arm-none-eabi\\include\\
+ 1586              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.07\\arm-none-eabi\\include\\
+ 1587              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xe.h"
+ 1588              		.file 5 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 1589              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
+ 1590              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+ 1591              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h"
+ 1592              		.file 9 "Core/Inc/tim.h"
+ 1593              		.file 10 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h"
+ 1594              		.file 11 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h"
+ 1595              		.file 12 "Core/Inc/main.h"
+ 1596              		.file 13 "<built-in>"
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 43
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 tim.c
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:16     .text.MX_TIM1_Init:00000000 $t
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:24     .text.MX_TIM1_Init:00000000 MX_TIM1_Init
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:138    .text.MX_TIM1_Init:00000060 $d
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:144    .text.MX_TIM3_Init:00000000 $t
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:151    .text.MX_TIM3_Init:00000000 MX_TIM3_Init
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:261    .text.MX_TIM3_Init:0000005c $d
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:267    .text.MX_TIM4_Init:00000000 $t
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:274    .text.MX_TIM4_Init:00000000 MX_TIM4_Init
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:384    .text.MX_TIM4_Init:0000005c $d
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:390    .text.MX_TIM6_Init:00000000 $t
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:397    .text.MX_TIM6_Init:00000000 MX_TIM6_Init
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:480    .text.MX_TIM6_Init:00000048 $d
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:486    .text.MX_TIM8_Init:00000000 $t
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:493    .text.MX_TIM8_Init:00000000 MX_TIM8_Init
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:606    .text.MX_TIM8_Init:00000060 $d
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:612    .text.HAL_TIM_Encoder_MspInit:00000000 $t
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:619    .text.HAL_TIM_Encoder_MspInit:00000000 HAL_TIM_Encoder_MspInit
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:866    .text.HAL_TIM_Encoder_MspInit:00000100 $d
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:878    .text.HAL_TIM_Base_MspInit:00000000 $t
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:885    .text.HAL_TIM_Base_MspInit:00000000 HAL_TIM_Base_MspInit
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:975    .text.HAL_TIM_Base_MspInit:00000058 $d
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:981    .text.HAL_TIM_MspPostInit:00000000 $t
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:988    .text.HAL_TIM_MspPostInit:00000000 HAL_TIM_MspPostInit
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:1119   .text.HAL_TIM_MspPostInit:0000007c $d
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:1126   .text.MX_TIM2_Init:00000000 $t
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:1133   .text.MX_TIM2_Init:00000000 MX_TIM2_Init
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:1344   .text.MX_TIM2_Init:000000e4 $d
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:1349   .text.HAL_TIM_Encoder_MspDeInit:00000000 $t
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:1356   .text.HAL_TIM_Encoder_MspDeInit:00000000 HAL_TIM_Encoder_MspDeInit
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:1459   .text.HAL_TIM_Encoder_MspDeInit:00000078 $d
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:1470   .text.HAL_TIM_Base_MspDeInit:00000000 $t
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:1477   .text.HAL_TIM_Base_MspDeInit:00000000 HAL_TIM_Base_MspDeInit
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:1530   .text.HAL_TIM_Base_MspDeInit:00000034 $d
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:1581   .bss.htim8:00000000 htim8
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:1574   .bss.htim6:00000000 htim6
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:1567   .bss.htim4:00000000 htim4
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:1560   .bss.htim3:00000000 htim3
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:1553   .bss.htim2:00000000 htim2
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:1546   .bss.htim1:00000000 htim1
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:1542   .bss.htim1:00000000 $d
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:1549   .bss.htim2:00000000 $d
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:1556   .bss.htim3:00000000 $d
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:1563   .bss.htim4:00000000 $d
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:1570   .bss.htim6:00000000 $d
+C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s:1577   .bss.htim8:00000000 $d
+
+UNDEFINED SYMBOLS
+memset
+HAL_TIM_Encoder_Init
+HAL_TIMEx_MasterConfigSynchronization
+Error_Handler
+HAL_TIM_Base_Init
+HAL_GPIO_Init
+HAL_NVIC_SetPriority
+HAL_NVIC_EnableIRQ
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccza8ov1.s 			page 44
+
+
+HAL_TIM_ConfigClockSource
+HAL_TIM_PWM_Init
+HAL_TIM_PWM_ConfigChannel
+HAL_GPIO_DeInit
+HAL_NVIC_DisableIRQ
